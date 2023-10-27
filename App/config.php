@@ -17,11 +17,11 @@ define("URL_BASE", SITE_PROTOCOL.SITE_DOMAIN.SITE_ROOT);
 define("SITE_NAME", "KarinaCarvalho");
 define("SITE_DESCRIPTION", "Copy");
 define("SITE_THEME", "#FF880B");
-define("SITE_SUMMARY_IMAGE", URL_BASE."/assets/img/setimg/512x512.png");
-define("SITE_KEYWORDS", "Jogo, Nave, Espaço, desviar, mineirofranchising, , Mineiro Franchising, Franchising, franquia");
+define("SITE_SUMMARY_IMAGE", URL_BASE."");
+define("SITE_KEYWORDS", "");
 
 // CREDENCIAIS DO SISTEMA
 define("SYSTEM_ID", 0);
-define("SYSTEM_EMAIL", "mineiro@jogo.mineirodeliverycampanhas.com.br");
+define("SYSTEM_EMAIL", "karina@gmail.br");
 define("SYSTEM_PASSWORD", "WuCcB0ZcdK~e");
-define("VERSION", "1.1.1");
+define("VERSION", "0.0.0");
