@@ -4,19 +4,31 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit2192eadc54e5a2db4ccb9e00367e1215
+class ComposerStaticInitbd3e76516a2459bb83f4a8845d3cecfe
 {
+    public static $files = array (
+        '6ea5206ea96bdaf5fdadcb09bc46ceae' => __DIR__ . '/../..' . '/App/config.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
-        'L' => 
+        'C' => 
         array (
-            'Lp\\Karinalp\\' => 12,
+            'CoffeeCode\\Router\\' => 18,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Lp\\Karinalp\\' => 
+        'CoffeeCode\\Router\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/..' . '/coffeecode/router/src',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/App',
         ),
     );
 
@@ -27,9 +39,9 @@ class ComposerStaticInit2192eadc54e5a2db4ccb9e00367e1215
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit2192eadc54e5a2db4ccb9e00367e1215::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit2192eadc54e5a2db4ccb9e00367e1215::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit2192eadc54e5a2db4ccb9e00367e1215::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitbd3e76516a2459bb83f4a8845d3cecfe::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitbd3e76516a2459bb83f4a8845d3cecfe::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitbd3e76516a2459bb83f4a8845d3cecfe::$classMap;
 
         }, null, ClassLoader::class);
     }

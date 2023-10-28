@@ -1,7 +1,4 @@
 {
-    "name": "lp/karinalp",
-    "description": "null",
-    "license": "null",
     "autoload": {
         "psr-4": {
             "App\\": "./App/"
@@ -10,10 +7,7 @@
             "./App/config.php"
         ]
     },
-    "authors": [
-        {
-            "name": "KarinaCavarlho"
-        }
-    ],
-    "require": {}
+    "require": {
+        "coffeecode/router": "^2.0"
+    }
 }
