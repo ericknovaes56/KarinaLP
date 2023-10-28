@@ -9,7 +9,12 @@ class Home {
 
     public static function render($params = []) {
 
-        $pageVars = [];
+        $pageVars = [
+            // "navbar" => "",
+            // "header" => "",
+            // "main" => "",
+            // "footer" => "",
+        ];
 
         echo BaseStructure::render(
             View::render("pages/home", $pageVars),
