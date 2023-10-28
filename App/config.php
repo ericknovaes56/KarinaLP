@@ -19,6 +19,8 @@ define("SITE_DESCRIPTION", "Copy");
 define("SITE_THEME", "#FF880B");
 define("SITE_SUMMARY_IMAGE", URL_BASE."");
 define("SITE_KEYWORDS", "");
+define("SITE_LANG", "pt-BR");
+define("SITE_CHARSET", "UTF-8");
 
 // CREDENCIAIS DO SISTEMA
 define("SYSTEM_ID", 0);

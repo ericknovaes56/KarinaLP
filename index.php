@@ -8,6 +8,6 @@ $router = new Router(URL_BASE);
 
 $router->namespace("App\Core\Controller");
 
-$router->get("/", "Home:render");
+$router->get("/", "Pages\Home:render");
 
 $router->dispatch();

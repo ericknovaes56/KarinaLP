@@ -4,25 +4,17 @@ namespace App\Utils;
 
 class View{
 
-    private static function getViewContent($view){
+    private static function getViewContent(string $view){
 
-        $file = null;
+        $viewDir = __DIR__."/../Core/View/";
 
-        if(is_dir(__DIR__."/../View/".$view)){
-
-            $file = __DIR__."/../View/".$view."/index.html";
-
-        } else {
-
-            $file = __DIR__."/../View/".$view.".html";
-
-        }
+        $file = is_dir($viewDir.$view) ? $viewDir.$view."/index.html" : $viewDir.$view.".html";
 
         return file_exists($file) ? file_get_contents($file) : '';
 
     }
 
-    public static function render($view, Array $vars = []){
+    public static function render(string $view, Array $vars = []){
 
         $viewContent = self::getViewContent($view);
 

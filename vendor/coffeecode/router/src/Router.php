@@ -8,9 +8,6 @@ namespace CoffeeCode\Router;
  * @author Robson V. Leite <https://github.com/robsonvleite>
  * @package CoffeeCode\Router
  */
-
- use CoffeeCode\Router\Dispatch;
-
 class Router extends Dispatch
 {
     /**
