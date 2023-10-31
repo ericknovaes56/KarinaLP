@@ -7,7 +7,11 @@ use App\Utils\View;
 class NavBar {
 
     public static function render() {
+        $pageVars = [
 
+        ];
+
+        return View::render('Components/layout/navbar', $pageVars);
     }
 
 }

@@ -15,6 +15,7 @@ class BaseStructure {
             "mainContent" => $mainContent,
             "links" => self::getLinks(isset($params["links"]) ? $params["links"] : []),
             "scripts" => self::getScripts(isset($params["scripts"]) ? $params["scripts"] : []),
+            "urlBase"=> URL_BASE
         ];
 
         return View::render("components/base_structure", $pageVars);
