@@ -2,7 +2,7 @@ header{
     display: flex;
     justify-content: center;
     margin-top: var(--navbar-height);
-    min-height: calc(100vh - var(--navbar-height));
+    min-height: calc(798px - var(--navbar-height));
     flex-direction: column;
     padding: var(--screen-margin);
 }

@@ -24,7 +24,7 @@ class Home {
                     ["rel" => "stylesheet", "href" => URL_BASE."/assets/css/home.css"]
                 ],
                 'scripts' => [
-                    ["async", "src" => URL_BASE."/assets/js/home.js"]
+                    ["defer" => true, "src" => URL_BASE."/assets/js/home.js"]
                 ]
             ]
         );
