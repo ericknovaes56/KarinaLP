@@ -7,4 +7,94 @@
 :root{
     --primary-color: #151821;
     --secundary-color: #FFFFFF;
+    --max-content: 1366px;
+    --screen-margin:100px;
+    --navbar-height: 124px;
+}
+main{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+main .corresao{
+    width: 100%;
+    max-width: var(--max-content);
+}
+.menu{
+    position: fixed;
+    display: flex;
+    left: 0;
+    top: 0;
+    justify-content: center;
+    width: 100%;
+    padding: 0 var(--screen-margin);
+    height: var(--navbar-height);
+}
+.menu .content-max{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--max-content);
+}
+.menu .left-a img{
+    --size: 120px;
+    width: var(--size);
+    height: var(--size);
+    object-fit: contain;
+}
+.menu .right-menu ul{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.menu .right-menu ul li{
+    list-style-type: none;
+}
+.menu .right-menu ul li a button{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 999px;
+    padding: 8px 15px;
+    transition: background-color .6s ease;
+    outline: none;
+}
+.menu .right-menu ul li a button:hover{
+    background-color: rgba(143, 140, 140, 0.096);
+}
+.menu .right-menu ul li a{
+    text-decoration: none;
+}
+.menu .right-menu ul .btns-div-navbar{
+    display: flex;
+    gap: 15px;
+}
+.menu .right-menu ul li a .btn-navbar{
+    background-color: var(--primary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 0;
+    border-radius: 50%;
+    font-size: 25px;
+}
+.menu .right-menu ul li a .btn-navbar:hover{
+    background-color: rgba(65, 59, 59, 0.822);
+}
+.menu .right-menu .navbar-animation{
+    display: flex;
+    gap: 30px;
+    position: relative;
+}
+.menu .right-menu .navbar-animation .line{
+    transition: all .6s ease;
+    width: 50px;
+    height: 5px;
+    background-color: var(--primary-color);
+    border-radius: 999px;
+    position: absolute;
+    top: 50px;
 }

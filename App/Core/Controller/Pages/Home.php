@@ -12,7 +12,7 @@ class Home {
 
         $pageVars = [
             "navbar" => NavBar::render(),
-            "header" => View::render('COmponents/header')
+            "header" => View::render('Components/header')
             // "main" => "",
             // "footer" => "",
         ];

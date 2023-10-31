@@ -1,61 +1,8 @@
-.menu{
-    position: fixed;
+header{
     display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 100px;
-}
-.menu .left-a img{
-    --size: 120px;
-    width: var(--size);
-    height: var(--size);
-    object-fit: contain;
-}
-.menu .right-menu ul{
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-.menu .right-menu ul li{
-    list-style-type: none;
-}
-.menu .right-menu ul li a button{
-    background-color: transparent;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 999px;
-    padding: 8px 15px;
-    transition: background-color .6s ease;
-}
-.menu .right-menu ul li a button:hover{
-    background-color: rgba(143, 140, 140, 0.096);
-}
-.menu .right-menu ul li a{
-    text-decoration: none;
-}
-.menu .right-menu ul li a .btn-navbar{
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 30px;
-    border-radius: 0;
-}
-.menu .right-menu ul li a .btn-navbar:hover{
-    background-color: var(--primary-color);
-}
-.menu .right-menu .navbar-animation{
-    display: flex;
-    gap: 30px;
-    position: relative;
-}
-.menu .right-menu .navbar-animation .line{
-    transition: all .6s ease;
-    width: 50px;
-    height: 5px;
-    background-color: var(--primary-color);
-    border-radius: 999px;
-    position: absolute;
-    top: 50px;
-    left: 13.5px;
+    justify-content: center;
+    margin-top: var(--navbar-height);
+    min-height: calc(100vh - var(--navbar-height));
+    flex-direction: column;
+    padding: var(--screen-margin);
 }
