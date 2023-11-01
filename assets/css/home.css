@@ -6,3 +6,35 @@ header{
     padding: var(--screen-margin);
     padding-top: var(--navbar-height);
 }
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    padding: 0 var(--screen-margin);
+}
+
+main section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    padding: 40px;
+}
+
+main section.bg-theme {
+    background-color: var(--secondary-color);
+    color: #ffffff;
+}
+
+main section.course-infos .modules {
+    display: flex;
+    gap: 10px;
+}
+
+main section.course-infos .modules .module {
+    width: 200px;
+    height: 400px;
+    background-color: var(--primary-color);
+}

@@ -4,9 +4,11 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-:root{
-    --primary-color: #151821;
-    --secundary-color: #FFFFFF;
+
+:root {
+    --primary-color: #d9b360;
+    --secondary-color: #151821;
+    --terciary-color: #ffffff;
     --max-content: 1366px;
     --screen-margin:100px;
     --navbar-height: 124px;
@@ -14,6 +16,7 @@
 
 .root{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin: 0 auto;
     max-width: var(--max-content);
@@ -76,7 +79,7 @@
     gap: 15px;
 }
 .menu .right-menu ul li a .btn-navbar{
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: white;
     width: 50px;
     height: 50px;
@@ -97,7 +100,7 @@
     transition: all .6s ease;
     width: 50px;
     height: 5px;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     border-radius: 999px;
     position: absolute;
     top: 50px;
