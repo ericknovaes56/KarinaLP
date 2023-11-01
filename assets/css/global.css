@@ -5,11 +5,11 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     scroll-behavior: smooth;
 }
-
-:root {
+:root{
     --primary-color: #d9b360;
     --secondary-color: #151821;
-    --terciary-color: #ffffff;
+    --terciary-color: #FFFFFF;
+    --secundary-color-opacity: #ffffff81;
     --text-color: black;
     
     --max-content: 1366px;
@@ -17,10 +17,24 @@
     --navbar-height: 124px;
 }
 
+:target {
+    scroll-margin-top: calc(var(--navbar-height) + 15px);
+}
+
+
+body::-webkit-scrollbar{
+    width: 10px;
+    background-color: var(--terciary-color);
+}
+body::-webkit-scrollbar-thumb{
+    background-color: var(--primary-color);
+    border-radius: 999px;
+}
+
 .root{
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
     margin: 0 auto;
     max-width: var(--max-content);
     width: 100%;
@@ -35,6 +49,8 @@
     width: 100%;
     height: var(--navbar-height);
     backdrop-filter: blur(10px);
+    background-color: var(--secundary-color-opacity);
+
 }
 .menu .content-max{
     display: flex;
@@ -62,7 +78,7 @@
 .menu .right-menu ul li a button{
     background-color: transparent;
     border: none;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
     border-radius: 999px;
     padding: 8px 15px;
@@ -81,7 +97,7 @@
     gap: 15px;
 }
 .menu .right-menu ul li a .btn-navbar{
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: white;
     width: 50px;
     height: 50px;
@@ -102,7 +118,7 @@
     transition: all .6s ease;
     width: 50px;
     height: 5px;
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     border-radius: 999px;
     position: absolute;
     top: 50px;
