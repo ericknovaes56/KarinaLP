@@ -40,7 +40,6 @@ main .corresao{
 .menu .left-a img{
     --size: 120px;
     width: var(--size);
-    height: var(--size);
     object-fit: contain;
 }
 .menu .right-menu ul{
