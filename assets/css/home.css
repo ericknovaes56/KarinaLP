@@ -1,7 +1,7 @@
 header{
     display: flex;
     justify-content: center;
-    min-height: calc(768px - var(--navbar-height));
+    min-height: calc(798px - var(--navbar-height));
     flex-direction: column;
     padding: var(--screen-margin);
     padding-top: var(--navbar-height);
