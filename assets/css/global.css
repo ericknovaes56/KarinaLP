@@ -11,15 +11,15 @@
     --screen-margin:100px;
     --navbar-height: 124px;
 }
-main{
+
+.root{
     display: flex;
-    width: 100%;
     justify-content: center;
-}
-main .corresao{
-    width: 100%;
+    margin: 0 auto;
     max-width: var(--max-content);
+    width: 100%;
 }
+
 .menu{
     position: fixed;
     display: flex;
@@ -28,6 +28,7 @@ main .corresao{
     justify-content: center;
     width: 100%;
     height: var(--navbar-height);
+    backdrop-filter: blur(10px);
 }
 .menu .content-max{
     display: flex;
@@ -36,6 +37,7 @@ main .corresao{
     align-items: center;
     justify-content: space-between;
     max-width: var(--max-content);
+    padding: 0 var(--screen-margin);
 }
 .menu .left-a img{
     --size: 120px;
