@@ -3,10 +3,13 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
 }
 :root{
     --primary-color: #151821;
     --secundary-color: #FFFFFF;
+    --text-color: black;
+    
     --max-content: 1366px;
     --screen-margin:100px;
     --navbar-height: 124px;
