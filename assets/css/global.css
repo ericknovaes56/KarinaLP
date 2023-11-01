@@ -3,12 +3,15 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
 }
 
 :root {
     --primary-color: #d9b360;
     --secondary-color: #151821;
     --terciary-color: #ffffff;
+    --text-color: black;
+    
     --max-content: 1366px;
     --screen-margin:100px;
     --navbar-height: 124px;
@@ -45,7 +48,6 @@
 .menu .left-a img{
     --size: 120px;
     width: var(--size);
-    height: var(--size);
     object-fit: contain;
 }
 .menu .right-menu ul{
