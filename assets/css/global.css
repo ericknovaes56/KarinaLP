@@ -19,22 +19,25 @@
 
 
 @font-face {
-    font-family: Poppins;
+    font-family: poppins;
     src: url(../font/Poppins/Poppins-Regular.ttf);
 }
 @font-face {
-    font-family: Montserrat;
+    font-family: montserrat;
     src: url(../font/Montserrat/static/Montserrat-Regular.ttf);
 }
 @font-face {
-    font-family: Raleway;
+    font-family: raleway;
     src: url(../font/Raleway/static/Raleway-Regular.ttf);
 }
 @font-face {
-    font-family: Poppins;
+    font-family: segoe;
     src: url(../font/segoe-ui/segoe-ui-emoji.ttf);
 }
-
+@font-face {
+    font-family: coolvetica;
+    src: url(../font/coolvetica/coolvetica\ rg.otf);
+}
 
 :target {
     scroll-margin-top: var(--navbar-height);
