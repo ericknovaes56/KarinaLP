@@ -5,9 +5,31 @@ header{
     flex-direction: column;
     padding: var(--screen-margin);
     padding-top: var(--navbar-height);
+    gap: 20px;
 }
 header h1{
-    
+    font-family: 'Raleway';
+    font-weight:900;
+    font-size: 50px;
+}
+header p{
+    max-width: 500px;
+}
+header .btns-header{
+    display: flex;
+    gap: 15px;
+}
+
+header .btns-header a{
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 15px;
+    text-decoration: none;
 }
 
 main {
@@ -27,7 +49,7 @@ main section {
 }
 
 main section.bg-theme {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: #ffffff;
 }
 
@@ -39,5 +61,5 @@ main section.course-infos .modules {
 main section.course-infos .modules .module {
     width: 200px;
     height: 400px;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
 }

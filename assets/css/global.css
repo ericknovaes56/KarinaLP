@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins';
     scroll-behavior: smooth;
 }
 :root{
-    --primary-color: #d9b360;
+    --primary-color: #60a1aa;
     --secondary-color: #151821;
     --terciary-color: #FFFFFF;
     --secundary-color-opacity: #ffffff81;
@@ -19,16 +21,8 @@
 
 
 @font-face {
-    font-family: poppins;
-    src: url(../font/Poppins/Poppins-Regular.ttf);
-}
-@font-face {
     font-family: montserrat;
     src: url(../font/Montserrat/static/Montserrat-Regular.ttf);
-}
-@font-face {
-    font-family: raleway;
-    src: url(../font/Raleway/static/Raleway-Regular.ttf);
 }
 @font-face {
     font-family: segoe;
@@ -98,6 +92,9 @@ body::-webkit-scrollbar-thumb{
     list-style-type: none;
 }
 .menu .right-menu ul li a button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: transparent;
     border: none;
     font-size: 20px;
