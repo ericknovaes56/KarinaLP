@@ -11,7 +11,7 @@
     --primary-color: #60a1aa;
     --secondary-color: #151821;
     --terciary-color: #FFFFFF;
-    --secundary-color-opacity: #ffffff81;
+    --primary-color-opacity: #60a1aa38;
     --text-color: black;
     
     --max-content: 1366px;
@@ -116,7 +116,7 @@ body::-webkit-scrollbar-thumb{
     gap: 15px;
 }
 .menu .right-menu ul li a .btn-navbar{
-    background-color: var(--primary-color);
+    background: var(--secondary-color);
     color: white;
     width: 50px;
     height: 50px;
@@ -124,10 +124,19 @@ body::-webkit-scrollbar-thumb{
     border-radius: 0;
     border-radius: 50%;
     font-size: 25px;
+    transition: .3s ease;
+
 }
 .menu .right-menu ul li a .btn-navbar:hover{
-    background-color: rgba(65, 59, 59, 0.822);
+    background: var(--primary-color);
 }
+.menu .right-menu ul li a .zap:hover{
+    background-color: #25D366;
+}
+.menu .right-menu ul li a .insta:hover{
+    background:#d6249f ;
+}
+
 .menu .right-menu .navbar-animation{
     display: flex;
     gap: 30px;
@@ -137,8 +146,9 @@ body::-webkit-scrollbar-thumb{
     transition: all .6s ease;
     width: 50px;
     height: 5px;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     border-radius: 999px;
     position: absolute;
     top: 50px;
+    
 }
