@@ -32,10 +32,10 @@ btnsNavBar.forEach((button, i) => {
 window.addEventListener("scroll", (e) => {
   sectionsArray.forEach(section => {
     var scrollTop = window.scrollY;
-    const posicaoElementoTop = section.offsetTop - menu.clientHeight - 15;
+    const posicaoElementoTop = section.offsetTop - menu.clientHeight - 60;
     const posicaoElementoDown = section.offsetHeight + posicaoElementoTop;
 
-    if (scrollTop < sectionsArray[0].offsetTop - menu.clientHeight - 15){
+    if (scrollTop < sectionsArray[0].offsetTop - menu.clientHeight - 60){
       setLineOnButton(btnsNavBar[0])
       return
     }

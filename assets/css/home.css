@@ -6,6 +6,9 @@ header{
     padding: var(--screen-margin);
     padding-top: var(--navbar-height);
 }
+header h1{
+    
+}
 
 main {
     display: flex;

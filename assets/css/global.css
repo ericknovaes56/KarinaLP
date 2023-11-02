@@ -17,8 +17,27 @@
     --navbar-height: 124px;
 }
 
+
+@font-face {
+    font-family: Poppins;
+    src: url(../font/Poppins/Poppins-Regular.ttf);
+}
+@font-face {
+    font-family: Montserrat;
+    src: url(../font/Montserrat/static/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: Raleway;
+    src: url(../font/Raleway/static/Raleway-Regular.ttf);
+}
+@font-face {
+    font-family: Poppins;
+    src: url(../font/segoe-ui/segoe-ui-emoji.ttf);
+}
+
+
 :target {
-    scroll-margin-top: calc(var(--navbar-height) + 15px);
+    scroll-margin-top: var(--navbar-height);
 }
 
 
