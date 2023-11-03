@@ -11,6 +11,7 @@
     --primary-color: #60a1aa;
     --secondary-color: #151821;
     --terciary-color: #FFFFFF;
+    --terciary-color-opacity: #ffffff60;
     --primary-color-opacity: #60a1aa38;
     --text-color: black;
     
@@ -46,16 +47,6 @@ body::-webkit-scrollbar-thumb{
     background-color: var(--primary-color);
     border-radius: 999px;
 }
-
-.root{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 0 auto;
-    max-width: var(--max-content);
-    width: 100%;
-}
-
 .menu{
     position: fixed;
     display: flex;
@@ -65,7 +56,7 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     height: var(--navbar-height);
     backdrop-filter: blur(10px);
-    background-color: var(--secundary-color-opacity);
+    background-color: var(--terciary-color-opacity);
 
 }
 .menu .content-max{
