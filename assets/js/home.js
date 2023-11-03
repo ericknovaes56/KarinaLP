@@ -14,9 +14,10 @@ const setLineOnButton = (button) =>{
 
 btnsNavBar.forEach((button, i) => {
 
+  const data = button.parentNode.dataset.to;
 
-  if (button.parentNode.dataset.to){
-    var getElement = document.querySelector("#"+button.parentNode.dataset.to)
+  if (data){
+    var getElement = document.querySelector("#"+data)
     if(getElement){
       sectionsArray.push(getElement)
     }
@@ -30,8 +31,11 @@ btnsNavBar.forEach((button, i) => {
 });
 
 window.addEventListener("scroll", (e) => {
+
   sectionsArray.forEach(section => {
+    
     var scrollTop = window.scrollY;
+
     const posicaoElementoTop = section.offsetTop - menu.clientHeight - 60;
     const posicaoElementoDown = section.offsetHeight + posicaoElementoTop;
 
