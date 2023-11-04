@@ -14,10 +14,11 @@ const setLineOnButton = (button) =>{
 
 btnsNavBar.forEach((button, i) => {
 
-  const data = button.parentNode.dataset.to;
+  var data = button.parentNode.hash
 
   if (data){
-    var getElement = document.querySelector("#"+data)
+    var getElement = document.querySelector(data)
+    console.log(getElement)
     if(getElement){
       sectionsArray.push(getElement)
     }
@@ -46,10 +47,12 @@ window.addEventListener("scroll", (e) => {
 
     if (scrollTop >= posicaoElementoTop && scrollTop <= posicaoElementoDown){
       btnsNavBar.forEach(button => {
-        var parent = button.parentNode
-        if (parent.dataset.to == section.id){
+        var parent = button.parentNode.hash.replace('#', "")
+
+        if ( parent == section.id){
           setLineOnButton(button)
         }
+      
       });
     }
 

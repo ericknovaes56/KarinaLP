@@ -11,7 +11,7 @@
     --primary-color: #60a1aa;
     --secondary-color: #151821;
     --terciary-color: #FFFFFF;
-    --terciary-color-opacity: #ffffff60;
+    --terciary-color-opacity: #ffffffce;
     --primary-color-opacity: #60a1aa38;
     --text-color: black;
     
@@ -95,6 +95,7 @@ body::-webkit-scrollbar-thumb{
     transition: background-color .6s ease;
     outline: none;
     user-select: none;
+    color: var(--primary-color);
 }
 .menu .right-menu ul li a button:hover{
     background-color: rgba(143, 140, 140, 0.096);
@@ -107,7 +108,7 @@ body::-webkit-scrollbar-thumb{
     gap: 15px;
 }
 .menu .right-menu ul li a .btn-navbar{
-    background: var(--secondary-color);
+    background: var(--primary-color);
     color: white;
     width: 50px;
     height: 50px;
@@ -137,7 +138,7 @@ body::-webkit-scrollbar-thumb{
     transition: all .6s ease;
     width: 50px;
     height: 5px;
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     border-radius: 999px;
     position: absolute;
     top: 50px;
