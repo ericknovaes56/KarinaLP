@@ -85,23 +85,37 @@ main section.bg-theme {
     background-color: var(--primary-color);
     color: #ffffff;
 }
+
+main section .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30pt;
+    text-align: center;
+    gap: 20px;
+}
+
+main section .title .icon {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 25px;
+    background-color: #ffffff;
+}
+
+main section .description {
+    font-size: 14pt;
+    text-align: center;
+}
+
 main section .metodo{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 40px;
 }
+
 main section.course-infos {
     align-items: center;
-}
-
-main section.course-infos .title {
-    text-align: center;
-    font-size: 24pt;
-}
-
-main section.course-infos .description {
-    text-align: center;
-    font-size: 14pt;
 }
 
 main section.course-infos .modules {
@@ -122,12 +136,13 @@ main section.course-infos .modules .module {
     flex: none;
     border-radius: 25px;
     transition: .3s ease;
+    transition-delay: .5s;
+    cursor: pointer;
 }
 
 main section.course-infos .modules .module:hover {
     width: 500px;
 }
-
 
 main .person-infomation{
     display: flex;
