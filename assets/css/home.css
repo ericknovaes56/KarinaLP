@@ -90,15 +90,42 @@ main section .metodo{
     flex-direction: column;
     gap: 10px;
 }
+main section.course-infos {
+    align-items: center;
+}
+
+main section.course-infos .title {
+    text-align: center;
+    font-size: 24pt;
+}
+
+main section.course-infos .description {
+    text-align: center;
+    font-size: 14pt;
+}
+
 main section.course-infos .modules {
     display: flex;
     gap: 10px;
+    overflow-x: auto;
+    width: 100%;
+}
+
+main section.course-infos .modules::-webkit-scrollbar {
+    display: none;
 }
 
 main section.course-infos .modules .module {
-    width: 200px;
-    height: 400px;
+    width: 250px;
+    height: 350px;
     background-color: var(--secondary-color);
+    flex: none;
+    border-radius: 25px;
+    transition: .3s ease;
+}
+
+main section.course-infos .modules .module:hover {
+    width: 500px;
 }
 
 
