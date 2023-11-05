@@ -12,6 +12,7 @@ const setLineOnButton = (button) =>{
 }
 
 
+
 btnsNavBar.forEach((button, i) => {
 
   var data = button.parentNode.hash
@@ -60,6 +61,31 @@ window.addEventListener("scroll", (e) => {
   });
 });
 
+const allInputs = document.querySelectorAll(".input input")
+const handleFocusBlur = (event) => {
+
+    var elemento = event.target
+    var elementoPai = elemento.parentNode
+    const label = elementoPai.querySelector('label');
+
+    if (elemento.value != '') {
+
+        label.classList.add('active', event.type === 'focus');
+
+        return
+
+    }
+
+    label.classList.toggle('active', event.type === 'focus');
+
+};
+
+allInputs.forEach(element => {
+
+    element.addEventListener("focus", handleFocusBlur);
+    element.addEventListener("blur", handleFocusBlur);
+
+});
 
 
 
