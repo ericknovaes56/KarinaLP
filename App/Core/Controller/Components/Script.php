@@ -9,7 +9,7 @@ class Script {
 
     public static function render(array $attributes, string $content = null) {
 
-        return View::render("components/script", [
+        return View::render("Components/script", [
             "attributes" => Formatting::arrayToAttributes($attributes),
             "content" => $content
         ]);

@@ -1,17 +1,23 @@
 {{navbar}}
 <header>
     <div class="content">
-        <h1>
-            Doutora do laser
-        </h1>
-        <p>Para todos que querem fazer parte da elite do mercado e cobrar mais através de técnicas de negociação e fechamento.</p>
-        <div class="btns-header">
-            <a href="#" class="eu-quero">
-                Eu quero
-            </a>
-            <a href="#" class="eu-quero saiba-mais">
-                Saiba mais
-            </a>
+        <div class="left reveal-left">
+            <h1>
+                Doutora do laser
+            </h1>
+            <p>Para todos que querem fazer parte da elite do mercado e cobrar mais através de técnicas  de   negociação e
+                fechamento.</p>
+            <div class="btns-header">
+                <a href="#" class="eu-quero">
+                    Eu quero
+                </a>
+                <a href="#" class="eu-quero saiba-mais">
+                    Saiba mais
+                </a>
+            </div>
+        </div>
+        <div class="right reveal-right">
+            <img src="{{urlBase}}/assets/img/header.png" alt="erro">
         </div>
     </div>
 </header>
@@ -19,19 +25,65 @@
     {{mainSections}}
     <section class="person-infomation" id="sobre">
         <div class="content">
-            <h1 class="title">Quem é a karina ?</h1>
-            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, a sunt error iste, excepturi accusantium repudiandae voluptas autem nam soluta modi ad itaque aliquam in ullam delectus voluptates nesciunt tempore.</p>
-            <a href="#" class="button">Eu quero</a>
+            <div class="left  reveal-left">
+                <h1 class="title">Quem é a karina ?</h1>
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, a sunt error iste,
+                    excepturi accusantium repudiandae voluptas autem nam soluta modi ad itaque aliquam in ullam delectus
+                    voluptates nesciunt tempore.</p>
+                <a href="#" class="button">Eu quero</a>
+            </div>
+            <div class="right reveal-right">
+                <img src="{{urlBase}}/assets/img/quem.png" alt="">
+            </div>
         </div>
     </section>
     {{mainSections}}
-    <section class="person-infomation" id="comunidade">
+    <section class="comunidade" id="comunidade" >
         <div class="content">
-            <span class="icon"><i class='bx bxs-user'></i></span>
-            <div class="right">
+            <div class="title reveal">
+                <span class="icon">
+                    <i class='bx bxs-user'></i>
+                </span>
+                <h1>Participe da comunidade</h1>
             </div>
-            <div class="left">
 
+            <div class="baixo">
+                <div class="left reveal-left">
+
+                    <p>
+                        preencha e envie suas informações para fazer parte da comunidade que mais cresce no Brasil.
+                    </p>
+                    <img src="https://www.pontotel.com.br/wp-content/uploads/2022/11/medico-do-trabalho.png ">
+
+                </div>
+                <div class="right reveal-right">
+                    <form action="">
+                        <div class="input">
+                            <label for="nome">
+                                <i class='bx bxs-user'></i>
+                                Nome
+                            </label>
+                            <input type="text" id="nome">
+                        </div>
+                        <div class="input">
+                            <label for="email">
+                                <i class='bx bxs-envelope'></i>
+                                Email
+                            </label>
+                            <input type="email" id="email">
+                        </div>
+                        <div class="input">
+                            <label for="telefone">
+                                <i class='bx bxl-whatsapp'></i>
+                                Telefone | Whatsapp
+                            </label>
+                            <input type="text" id="telefone">
+                        </div>
+                        <button>
+                            ENVIAR
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>

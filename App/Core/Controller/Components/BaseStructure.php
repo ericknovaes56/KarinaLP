@@ -18,7 +18,7 @@ class BaseStructure {
             "urlBase"=> URL_BASE
         ];
 
-        return View::render("components/base_structure", $pageVars);
+        return View::render("Components/base_structure", $pageVars);
 
     }
 

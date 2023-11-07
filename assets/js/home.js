@@ -12,24 +12,30 @@ const setLineOnButton = (button) =>{
 }
 
 
+
 btnsNavBar.forEach((button, i) => {
 
   var data = button.parentNode.hash
 
   if (data){
+
     var getElement = document.querySelector(data)
-    console.log(getElement)
+
     if(getElement){
       sectionsArray.push(getElement)
     }
+
   }
 
   if (i === 0) {
     setLineOnButton(button)
   }
 
-
 });
+
+if (sectionsArray.length == 0){
+  line.remove()
+}
 
 window.addEventListener("scroll", (e) => {
 
@@ -60,7 +66,54 @@ window.addEventListener("scroll", (e) => {
   });
 });
 
+// form section
+
+const allInputs = document.querySelectorAll(".input input")
+const handleFocusBlur = (event) => {
+
+    var elemento = event.target
+    var elementoPai = elemento.parentNode
+    const label = elementoPai.querySelector('label');
+
+    if (elemento.value != '') {
+
+        label.classList.add('active', event.type === 'focus');
+
+        return
+
+    }
+
+    label.classList.toggle('active', event.type === 'focus');
+
+};
+
+allInputs.forEach(element => {
+
+    element.addEventListener("focus", handleFocusBlur);
+    element.addEventListener("blur", handleFocusBlur);
+
+});
+
+
+const formatarNumeroDeCelular = (phone) => {
+  phone = phone.replace(/\D/g, ''); // Remove todos os caracteres não numéricos.
+
+  if (phone.length > 2) {
+    if (phone.length === 11) {
+      phone = '(' + phone.substr(0, 2) + ') ' + phone.substr(2, 1) + ' ' + phone.substr(3, 4) + '-' + phone.substr(7);
+    } else if (phone.length === 10) {
+      phone = '(' + phone.substr(0, 2) + ') ' + phone.substr(2, 4) + '-' + phone.substr(6);
+    }
+  }
+
+  return phone;
+}
 
 
 
+const numeroInput = document.querySelector("#telefone");
 
+numeroInput.addEventListener("input", (e) => {
+  var input = e.target.value;
+  e.target.value = formatarNumeroDeCelular(input);
+});
