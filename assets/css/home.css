@@ -142,7 +142,7 @@ main section.course-infos .modules::-webkit-scrollbar {
 main section.course-infos .modules .module {
     width: 250px;
     height: 350px;
-    background-color: var(--secondary-color);
+    background-color: var(--terciary-color);
     flex: none;
     border-radius: 25px;
     transition: .3s ease;
@@ -173,6 +173,7 @@ main .person-infomation .content .right img{
     height: 500px;
 }
 main .person-infomation .title{
+    justify-content: start;
     font-size: 38pt;
     font-family: Raleway;
 }
@@ -191,6 +192,12 @@ main .person-infomation .button{
     color: white;
     text-decoration: none;
 }
+
+main .feedbacks .description {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
 main .comunidade .content{
     display: flex;
     justify-content: center;
