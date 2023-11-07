@@ -57,6 +57,7 @@ body::-webkit-scrollbar-thumb{
     height: var(--navbar-height);
     backdrop-filter: blur(10px);
     background-color: var(--terciary-color-opacity);
+    z-index: 999;
 
 }
 .menu .content-max{

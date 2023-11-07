@@ -9,7 +9,7 @@ class Link {
 
     public static function render(array $attributes, string $content = null) {
 
-        return View::render("components/link", [
+        return View::render("Components/link", [
             "attributes" => Formatting::arrayToAttributes($attributes)
         ]);
 

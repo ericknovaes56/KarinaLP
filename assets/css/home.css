@@ -3,6 +3,7 @@ header{
     justify-content: center;
     min-height: calc(798px - var(--navbar-height));
     flex-direction: column;
+    padding-top: var(--navbar-height) ;
 }
 .content{
     margin: auto;
@@ -65,6 +66,15 @@ header .btns-header .saiba-mais{
 header .btns-header .saiba-mais:hover{
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.205);
 
+}
+header .content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .content .right img{
+    max-width: 100%;
+    height: 500px;
 }
 main {
     display: flex;
@@ -139,8 +149,15 @@ main .person-infomation{
 }
 main .person-infomation .content{
     display: flex;
+}
+main .person-infomation .content .left{
+    display: flex;
     flex-direction: column;
     gap: 20px;
+}
+main .person-infomation .content .right img{
+    max-width: 100%;
+    height: 500px;
 }
 main .person-infomation .title{
     font-size: 38pt;

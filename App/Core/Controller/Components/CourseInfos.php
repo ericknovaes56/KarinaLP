@@ -10,7 +10,7 @@ class CourseInfos {
 
         $componentVars = [];
 
-        return View::render("components/course_infos", $componentVars);
+        return View::render("Components/course_infos", $componentVars);
 
     }
 

@@ -13,12 +13,11 @@ class Home {
 
         $pageVars = [
             "navbar" => NavBar::render(),
-            "header" => View::render('Components/header'),
             "mainSections" => CourseInfos::render(),
         ];
 
         echo BaseStructure::render(
-            View::render("pages/home", $pageVars),
+            View::render("Pages/home", $pageVars),
             [
                 'links' => [
                     ["rel" => "stylesheet", "href" => URL_BASE."/assets/css/home.css"]
