@@ -72,9 +72,49 @@ header .content{
     align-items: center;
     justify-content: space-between;
 }
+header .content .right{
+    position: relative;
+}
 header .content .right img{
     max-width: 100%;
     height: 500px;
+}
+header .content .right .card{
+    position: absolute;
+    width: 60px;
+    height: fit-content;
+    object-fit: contain;
+}
+header .content .right .card:nth-child(1){
+    top: 30px;
+    animation: toptodown1 6s ease infinite;
+}
+header .content .right .card:last-child{
+    top: 200px;
+    right: 0 ;
+    animation: toptodown2 6s ease infinite;
+}
+@keyframes toptodown1 {
+    0%{
+        top: 30px;
+    }
+    50%{
+        top: 0px ;
+    }
+    100%{
+        top: 30px;
+    }
+}
+@keyframes toptodown2 {
+    0%{
+        top: 200px;
+    }
+    50%{
+        top: 250px ;
+    }
+    100%{
+        top: 200px;
+    }
 }
 main {
     display: flex;
