@@ -25,7 +25,8 @@ class BaseStructure {
     private static function getLinks(array $links = []) {
 
         $defaultLinks = [
-            ["rel" => "stylesheet", "href" => URL_BASE."/assets/css/global.css"]
+            ["rel" => "stylesheet", "href" => "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"],
+            ["rel" => "stylesheet", "href" => URL_BASE."/assets/css/global.css"],
         ];
 
         return Links::render(array_merge($defaultLinks, $links));
@@ -35,7 +36,8 @@ class BaseStructure {
     private static function getScripts(array $scripts = []) {
 
         $defaultScripts = [
-            // ["type" => "module", "src" => URL_BASE."/assets/js/global.js"]
+            ["src" => "https://unpkg.com/scrollreveal"],
+            ["defer" => true, "src" => URL_BASE."/assets/js/reveal.js"]
         ];
 
         return Scripts::render(array_merge($defaultScripts, $scripts));
