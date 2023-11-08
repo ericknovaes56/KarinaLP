@@ -89,69 +89,145 @@ main section {
     gap: 40px;
     width: 100%;
     padding:  40px 0;
+    position: relative;
 }
 
-main section.bg-theme {
-    background-color: var(--primary-color);
-    color: #ffffff;
+main section .content {
+    display: inherit;
+    flex-direction: inherit;
+    justify-content: inherit;
+    gap: inherit;
+}
+
+main section .icon {
+    --bg: var(--primary-color);
+    --size: 70px;
+    --inner-size: calc(var(--size) - 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 25px;
+    background-color: var(--bg);
+    color: var(--terciary-color);
+    fill: var(--terciary-color);
+}
+
+main section .icon * {
+    width: var(--inner-size);
+    height: var(--inner-size);
+    font-size: var(--inner-size);
+    object-fit: contain;
+    z-index: 2;
+}
+
+main section .icon.blob {
+    --inner-size: calc(var(--size) - 30%);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 calc(var(--size) / 2) calc(var(--size) / 2);
+    height: 100px;
+}
+
+main section .icon.blob::before, main section .icon.blob::after {
+    --width: 100px;
+    --radius: 30px;
+    content: '';
+    position: absolute;
+    top: 0;
+    width: var(--width);
+    height: 50px;
+}
+
+main section .icon.blob::before {
+    right: 100%;
+    box-shadow: var(--radius) 0 0 var(--bg);
+    border-radius: 0 var(--radius) 0 0;
+}
+
+main section .icon.blob::after {
+    left: 100%;
+    box-shadow: calc(var(--radius) * -1) 0 0 var(--bg);
+    border-radius: var(--radius) 0 0 0;
 }
 
 main section .title {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30pt;
+    font-size: 38pt;
     text-align: center;
     gap: 20px;
-}
-
-main section .title .icon {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 25px;
-    background-color: #ffffff;
 }
 
 main section .description {
     font-size: 14pt;
     text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
 }
 
-main section .metodo{
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+main section.bg-theme {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 30px;
 }
 
-main section.course-infos {
+main section.bg-theme .icon {
+    --bg: var(--terciary-color);
+    color: var(--primary-color);
+    fill: var(--primary-color);
+}
+
+main .course-infos {
     align-items: center;
 }
 
-main section.course-infos .modules {
+main .course-infos .modules {
+    --gap: 20px;
+    --quantity-view: 4;
     display: flex;
-    gap: 10px;
+    gap: var(--gap);
     overflow-x: auto;
     width: 100%;
+    counter-reset: modulos;
 }
 
-main section.course-infos .modules::-webkit-scrollbar {
+main .course-infos .modules::-webkit-scrollbar {
     display: none;
 }
 
-main section.course-infos .modules .module {
-    width: 250px;
-    height: 350px;
+main .course-infos .modules .module {
+    position: relative;
+    width: calc(((100% - (var(--gap) * (var(--quantity-view) - 1))) / var(--quantity-view)));
+    height: 360px;
     background-color: var(--terciary-color);
     flex: none;
     border-radius: 25px;
     transition: .3s ease;
     transition-delay: .5s;
     cursor: pointer;
+    counter-increment: modulos;
 }
 
-main section.course-infos .modules .module:hover {
+main .course-infos .modules .module:hover {
     width: 500px;
+}
+
+main .course-infos .modules .module::after {
+    content: 'Módulo 'counter(modulos);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 20pt;
 }
 
 main .person-infomation{
@@ -193,9 +269,68 @@ main .person-infomation .button{
     text-decoration: none;
 }
 
-main .feedbacks .description {
-    max-width: 300px;
-    margin: 0 auto;
+main .feedbacks {
+    padding-top: 150px;
+}
+
+main .feedbacks .title {
+    flex-direction: column;
+}
+
+main .feedbacks .wrapper {
+    --gap: 20px;
+    --quantity-view: 3;
+    display: flex;
+    gap: var(--gap);
+    overflow-x: auto;
+}
+
+main .feedbacks .wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+main .feedbacks .wrapper .feedback {
+    width: calc(((100% - (var(--gap) * (var(--quantity-view) - 1))) / var(--quantity-view)));
+    height: 480px;
+    border-radius: 25px;
+    background-color: var(--terciary-color);
+    flex: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+main .feedbacks .wrapper .feedback::before {
+    content: '';
+    background-color: #00000020;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    transition: .3s ease;
+    opacity: 0;
+}
+
+main .feedbacks .wrapper .feedback::after {
+    --clip-path: polygon(0 0, 100% 50%, 0 100%);
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    transform: translate3d(-50%, -50%, 0);
+    clip-path: var(--clip-path);
+    -moz-clip-path: var(--clip-path);
+    -webkit-clip-path: var(--clip-path);
+    background-color: var(--primary-color);
+    opacity: 0;
+}
+
+main .feedbacks .wrapper .feedback:hover::before, main .feedbacks .wrapper .feedback:hover::after {
+    opacity: 1;
 }
 
 main .comunidade .content{
@@ -205,22 +340,9 @@ main .comunidade .content{
     gap: 40px;
 }
 main .comunidade .content .title{
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 13px;
 }
-main .comunidade .content .icon{
-    display: flex;
-    background-color: var(--primary-color);
-    width: 55px;
-    height: 55px;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-    color: white;
-}
+
 main .comunidade .content .baixo{
     display: flex;
     width: 100%;
@@ -301,4 +423,20 @@ main .comunidade .content .baixo .right form button{
     border-radius: 13px;
     cursor: pointer;
     border: none;
+}
+
+@media (max-width: 1000px) {
+    
+    main .course-infos .modules {
+        --quantity-view: 3;
+    }
+
+}
+
+@media (max-width: 853px) {
+    
+    main .course-infos .modules {
+        --quantity-view: 2;
+    }
+
 }
