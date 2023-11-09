@@ -216,7 +216,7 @@ main section .title {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 38pt;
+    font-size: 30pt;
     text-align: center;
     gap: 20px;
 }
