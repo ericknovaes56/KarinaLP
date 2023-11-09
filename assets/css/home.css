@@ -87,33 +87,27 @@ header .content .right .card{
 }
 header .content .right .card:nth-child(1){
     top: 30px;
-    animation: toptodown1 6s ease infinite;
+    animation: toptodown1 5s ease-in-out infinite alternate;
 }
 header .content .right .card:last-child{
     top: 200px;
     right: 0 ;
-    animation: toptodown2 6s ease infinite;
+    animation: toptodown2 5s ease-in-out infinite alternate;
 }
 @keyframes toptodown1 {
-    0%{
-        top: 30px;
+    from{
+        transform: translateY(50px);
     }
-    50%{
-        top: 0px ;
-    }
-    100%{
-        top: 30px;
+    to{
+        transform: translateY(0px);
     }
 }
 @keyframes toptodown2 {
-    0%{
-        top: 200px;
+    from{
+        transform: translateY(0px);
     }
-    50%{
-        top: 250px ;
-    }
-    100%{
-        top: 200px;
+    to{
+        transform: translateY(50px);
     }
 }
 main {
@@ -161,6 +155,30 @@ main section .icon * {
     object-fit: contain;
     z-index: 2;
 }
+
+main footer .icon {
+    --bg: var(--primary-color);
+    --size: 70px;
+    --inner-size: calc(var(--size) - 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 25px;
+    background-color: var(--bg);
+    color: var(--terciary-color);
+    fill: var(--terciary-color);
+}
+
+main footer .icon * {
+    width: var(--inner-size);
+    height: var(--inner-size);
+    font-size: var(--inner-size);
+    object-fit: contain;
+    z-index: 2;
+}
+
 
 main section .icon.blob {
     --inner-size: calc(var(--size) - 30%);
@@ -215,8 +233,18 @@ main section.bg-theme {
     color: #ffffff;
     border-radius: 30px;
 }
-
+main footer.bg-theme {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 30px;
+}
 main section.bg-theme .icon {
+    --bg: var(--terciary-color);
+    color: var(--primary-color);
+    fill: var(--primary-color);
+}
+
+main footer.bg-theme .icon {
     --bg: var(--terciary-color);
     color: var(--primary-color);
     fill: var(--primary-color);
@@ -465,7 +493,26 @@ main .comunidade .content .baixo .right form button{
     cursor: pointer;
     border: none;
 }
-
+main footer.bg-theme{
+    border-bottom-right-radius: 0 ;
+    border-bottom-left-radius: 0 ;
+}
+main footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 60px; 
+}
+main footer .title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-size: 30px;
+    width: 100%;
+    border-bottom: thin solid white;
+    padding-bottom: 50px;
+}
 @media (max-width: 1000px) {
     
     main .course-infos .modules {

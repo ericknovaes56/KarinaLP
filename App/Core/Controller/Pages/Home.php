@@ -14,6 +14,7 @@ class Home {
         $pageVars = [
             "navbar" => NavBar::render(),
             "mainSections" => CourseInfos::render(),
+            'cards' => View::render('Components/pergunta_card')
         ];
 
         echo BaseStructure::render(

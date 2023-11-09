@@ -17,7 +17,7 @@
     
     --max-content: 1366px;
     --screen-margin:100px;
-    --navbar-height: 124px;
+    --navbar-height: 80px;
 }
 
 
@@ -70,9 +70,8 @@ body::-webkit-scrollbar-thumb{
     padding: 0 var(--screen-margin);
 }
 .menu .left-a img{
-    --size: 120px;
+    --size: 80px;
     width: var(--size);
-    object-fit: contain;
 }
 .menu .right-menu ul{
     display: flex;
@@ -89,7 +88,7 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     background-color: transparent;
     border: none;
-    font-size: 20px;
+    font-size: 15px;
     cursor: pointer;
     border-radius: 999px;
     padding: 8px 15px;
@@ -111,8 +110,8 @@ body::-webkit-scrollbar-thumb{
 .menu .right-menu ul li a .btn-navbar{
     background: var(--primary-color);
     color: white;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     padding: 0;
     border-radius: 0;
     border-radius: 50%;
@@ -137,11 +136,11 @@ body::-webkit-scrollbar-thumb{
 }
 .menu .right-menu .navbar-animation .line{
     transition: all .6s ease;
-    width: 50px;
-    height: 5px;
+    width: 40px;
+    height: 4px;
     background-color: var(--primary-color);
     border-radius: 999px;
     position: absolute;
-    top: 50px;
+    top: calc(100% + 5px);
     
 }
