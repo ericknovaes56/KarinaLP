@@ -117,3 +117,29 @@ numeroInput.addEventListener("input", (e) => {
   var input = e.target.value;
   e.target.value = formatarNumeroDeCelular(input);
 });
+
+
+const cards = document.querySelectorAll(".card")
+cards.forEach(card => {
+
+  card.addEventListener("click",()=>{
+
+    cards.forEach(cardin =>{
+      if(cardin.classList.contains("show") && cardin != card ){
+        cardin.classList.toggle("show")
+        const realHeight = cardin.scrollHeight
+        cardin.style.height='60px'
+      }
+    })
+
+    if (card.classList.contains('show')){
+      card.classList.toggle("show")
+      const realHeight = card.scrollHeight
+      card.style.height='60px'
+    }else{
+      card.classList.toggle("show")
+      const realHeight = card.scrollHeight
+      card.style.height=realHeight+'px'
+    }
+  })
+});
