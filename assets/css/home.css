@@ -621,11 +621,13 @@ main footer.bg-theme{
     border-bottom-right-radius: 0 ;
     border-bottom-left-radius: 0 ;
 }
-main footer {
+main footer .content{
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 30px 60px; 
+    gap: 15px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 main footer .title{
     display: flex;
@@ -637,6 +639,56 @@ main footer .title{
     border-bottom: thin solid white;
     padding-bottom: 50px;
 }
+main footer .title > h1{
+    font-size: 30px;
+}
+main footer .questions{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+main footer .questions .card{
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+    overflow: hidden;
+    transition: all .6s ease;
+}
+main footer .questions .card .title-card{
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    background-color: white;
+    color: black;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 15px;
+    cursor: pointer;
+    flex: none;
+    transition: all .3s ease;
+}
+main footer .questions .card:first-child .title-card{
+    border-radius: 15px 15px 0px 0px ;
+}
+main footer .questions .card:last-child .title-card{
+    border-radius: 0px 0px 15px 15px ;
+}
+main footer .questions .card .title-card > h1{
+    text-transform: capitalize;
+    font-size: 18px;
+}
+main footer .questions .card:last-child .content-incard{
+    border-radius: 0 0px 10px 10px ;
+}
+main footer .questions .show:last-child .title-card{
+    border-radius: 0 0px 0px 0px ;
+}
+main footer .questions .card .content-incard{
+    background-color: rgb(247, 247, 247);
+    color: black;
+    padding: 10px 20px;
+}
+
 @media (max-width: 1000px) {
     
     main .course-infos .modules {
