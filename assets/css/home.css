@@ -3,7 +3,7 @@ header{
     justify-content: center;
     min-height: calc(798px - var(--navbar-height));
     flex-direction: column;
-    padding-top: var(--navbar-height) ;
+    padding-top: var(--navbar-height);
 }
 
 header::after{
