@@ -621,7 +621,7 @@ main footer.bg-theme{
     border-bottom-right-radius: 0 ;
     border-bottom-left-radius: 0 ;
 }
-main footer .content{
+main footer .max-content{
     display: flex;
     align-items: center;
     flex-direction: column;
