@@ -4,6 +4,7 @@ namespace App\Core\Controller\Pages;
 
 use App\Core\Controller\Components\BaseStructure;
 use App\Core\Controller\Components\CourseInfos;
+use App\Core\Controller\Components\Footer;
 use App\Utils\View;
 use App\Core\Controller\Components\NavBar;
 
@@ -14,7 +15,7 @@ class Home {
         $pageVars = [
             "navbar" => NavBar::render(),
             "mainSections" => CourseInfos::render(),
-            'cards' => View::render('Components/pergunta_card')
+            "footer"=>Footer::render()
         ];
 
         echo BaseStructure::render(

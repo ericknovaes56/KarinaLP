@@ -620,6 +620,7 @@ footer .questions{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-top: 15px;
 }
 
 footer .questions .card{
@@ -642,6 +643,7 @@ footer .questions .card .title-card{
     cursor: pointer;
     flex: none;
     transition: all .3s ease;
+    user-select: none;
 }
 
 footer .questions .card:first-child .title-card{
@@ -670,7 +672,39 @@ footer .questions .card .content-incard{
     color: black;
     padding: 10px 20px;
 }
+footer .end{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 40px;
+    border-top: 1px solid white;
+    margin-top: 25px;
+    align-items: center;
+}
+footer .end .right{
+    display: flex;
+    gap: 10px;
 
+}
+footer .end .right .btn-f{
+    padding: 10px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    text-decoration: none;
+    font-size: 25px;
+    color: var(--primary-color);
+    transition: all .6s ease;
+
+}
+footer .end .right .zap:hover{
+    background-color: #25D366;
+    color: white;
+}
+footer .end .right .ig:hover{
+    background-color: #d6249f;
+    color: white;
+}
 @media (max-width: 1000px) {
     
     main .course-infos .modules {
