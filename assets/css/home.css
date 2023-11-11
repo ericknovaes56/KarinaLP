@@ -134,7 +134,7 @@ main section {
     position: relative;
 }
 
-main section .icon {
+main section .icon, footer .icon {
     --bg: var(--primary-color);
     --size: 70px;
     --inner-size: calc(var(--size) - 50%);
@@ -149,37 +149,13 @@ main section .icon {
     fill: var(--terciary-color);
 }
 
-main section .icon * {
+main section .icon *, footer .icon * {
     width: var(--inner-size);
     height: var(--inner-size);
     font-size: var(--inner-size);
     object-fit: contain;
     z-index: 2;
 }
-
-main footer .icon {
-    --bg: var(--primary-color);
-    --size: 70px;
-    --inner-size: calc(var(--size) - 50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: var(--size);
-    height: var(--size);
-    border-radius: 25px;
-    background-color: var(--bg);
-    color: var(--terciary-color);
-    fill: var(--terciary-color);
-}
-
-main footer .icon * {
-    width: var(--inner-size);
-    height: var(--inner-size);
-    font-size: var(--inner-size);
-    object-fit: contain;
-    z-index: 2;
-}
-
 
 main section .icon.blob {
     --inner-size: calc(var(--size) - 30%);
@@ -229,32 +205,20 @@ main section .description {
     margin: 0 auto;
 }
 
-main section.bg-theme {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border-radius: 30px;
-}
-
-main footer.bg-theme {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border-radius: 30px;
-}
-
-main section.bg-theme .icon {
-    --bg: var(--terciary-color);
-    color: var(--primary-color);
-    fill: var(--primary-color);
-}
-
-main footer.bg-theme .icon {
-    --bg: var(--terciary-color);
-    color: var(--primary-color);
-    fill: var(--primary-color);
-}
-
-main section.bg-theme strong {
+main section .description strong {
     color: inherit;
+}
+
+main section.bg-theme, footer.bg-theme {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 30px;
+}
+
+main section.bg-theme .icon, footer.bg-theme .icon {
+    --bg: var(--terciary-color);
+    color: var(--primary-color);
+    fill: var(--primary-color);
 }
 
 main .course-infos {
@@ -587,18 +551,22 @@ main .comunidade .baixo .right form .input label{
     padding: 0 5px;
     color: var(--primary-color);
 }
+
 main .comunidade .baixo .right form .input .active {
     transform: translateY(-30px);
     background-color: white;
     font-size: 10px;
 }
+
 main .comunidade .baixo .right form .input .active i{
     font-size: 18px;
 }
+
 main .comunidade .baixo .right form .input label i{
     font-size: 25px;
     transition: all .3s ease;
 }
+
 main .comunidade .baixo .right form .input input{
     width: 100%;
     height: 60px;
@@ -607,6 +575,7 @@ main .comunidade .baixo .right form .input input{
     outline: none;
     border: 1px solid var(--primary-color);
 }
+
 main .comunidade .baixo .right form button{
     height: 60px;
     background-color: var(--primary-color);
@@ -617,11 +586,13 @@ main .comunidade .baixo .right form button{
     cursor: pointer;
     border: none;
 }
-main footer.bg-theme{
+
+footer.bg-theme{
     border-bottom-right-radius: 0 ;
     border-bottom-left-radius: 0 ;
 }
-main footer .max-content{
+
+footer .max-content{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -629,7 +600,8 @@ main footer .max-content{
     padding-top: 40px;
     padding-bottom: 40px;
 }
-main footer .title{
+
+footer .title{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -639,22 +611,26 @@ main footer .title{
     border-bottom: thin solid white;
     padding-bottom: 50px;
 }
-main footer .title > h1{
+
+footer .title > h1{
     font-size: 30px;
 }
-main footer .questions{
+
+footer .questions{
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-main footer .questions .card{
+
+footer .questions .card{
     display: flex;
     flex-direction: column;
     height: 60px;
     overflow: hidden;
     transition: all .6s ease;
 }
-main footer .questions .card .title-card{
+
+footer .questions .card .title-card{
     display: flex;
     height: 60px;
     justify-content: space-between;
@@ -667,23 +643,29 @@ main footer .questions .card .title-card{
     flex: none;
     transition: all .3s ease;
 }
-main footer .questions .card:first-child .title-card{
+
+footer .questions .card:first-child .title-card{
     border-radius: 15px 15px 0px 0px ;
 }
-main footer .questions .card:last-child .title-card{
+
+footer .questions .card:last-child .title-card{
     border-radius: 0px 0px 15px 15px ;
 }
-main footer .questions .card .title-card > h1{
+
+footer .questions .card .title-card > h1{
     text-transform: capitalize;
     font-size: 18px;
 }
-main footer .questions .card:last-child .content-incard{
+
+footer .questions .card:last-child .content-incard{
     border-radius: 0 0px 10px 10px ;
 }
-main footer .questions .show:last-child .title-card{
+
+footer .questions .show:last-child .title-card{
     border-radius: 0 0px 0px 0px ;
 }
-main footer .questions .card .content-incard{
+
+footer .questions .card .content-incard{
     background-color: rgb(247, 247, 247);
     color: black;
     padding: 10px 20px;
