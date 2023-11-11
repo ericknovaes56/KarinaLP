@@ -7,6 +7,7 @@
     font-family: 'Poppins';
     scroll-behavior: smooth;
 }
+
 :root{
     --primary-color: #60a1aa;
     --secondary-color: #151821;
@@ -18,17 +19,21 @@
     --max-content: 1366px;
     --screen-margin:100px;
     --navbar-height: 80px;
-}
 
+    --cylinder-radius: 99999px;
+    --default-radius: 25px;
+}
 
 @font-face {
     font-family: montserrat;
     src: url(../font/Montserrat/static/Montserrat-Regular.ttf);
 }
+
 @font-face {
     font-family: segoe;
     src: url(../font/segoe-ui/segoe-ui-emoji.ttf);
 }
+
 @font-face {
     font-family: coolvetica;
     src: url(../font/coolvetica/coolvetica\ rg.otf);
@@ -38,15 +43,37 @@
     scroll-margin-top: var(--navbar-height);
 }
 
-
 body::-webkit-scrollbar{
     width: 10px;
     background-color: var(--terciary-color);
 }
+
 body::-webkit-scrollbar-thumb{
     background-color: var(--primary-color);
     border-radius: 999px;
 }
+
+strong {
+    color: var(--primary-color);
+}
+
+mark {
+    background-color: var(--primary-color-opacity);
+    border-radius: 7px;
+    padding: 0 10px;
+}
+
+.max-content {
+    margin: auto;
+    width: 100%;
+    max-width: var(--max-content);
+    padding: 0 var(--screen-margin);
+    display: inherit;
+    flex-direction: inherit;
+    justify-content: inherit;
+    gap: inherit;
+}
+
 .menu{
     position: fixed;
     display: flex;
