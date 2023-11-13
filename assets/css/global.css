@@ -45,6 +45,7 @@
 body {
     background-color: var(--terciary-color);
     color: var(--text-color);
+    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar{
@@ -176,3 +177,4 @@ mark {
     top: calc(100% + 5px);
     
 }
+

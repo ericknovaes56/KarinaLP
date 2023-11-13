@@ -3,26 +3,15 @@ header{
     justify-content: center;
     min-height: calc(798px - var(--navbar-height));
     flex-direction: column;
-    padding-top: var(--navbar-height);
-}
-
-header::after{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 850px;
-    height: 850px;
-    transform: translate(-50%,-30%);
-    z-index: -1;
-    background-color: var(--primary-color-opacity);
-    filter: blur(50px);
-    border-radius: 50%;
 }
 
 header .max-content {
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    padding-top:0 ;
+    height: 100%;
+    gap: 15px;
 }
 
 header h1{
@@ -75,6 +64,7 @@ header .btns-header .saiba-mais:hover{
 
 header .right{
     position: relative;
+    flex: none;
 }
 
 header .right img{
@@ -91,12 +81,13 @@ header .right .card{
 
 header .right .card:nth-child(1){
     top: 30px;
+    left: -50px;
     animation: toptodown1 5s ease-in-out infinite alternate;
 }
 
 header .right .card:last-child{
     top: 200px;
-    right: 0 ;
+    right: -50px ;
     animation: toptodown2 5s ease-in-out infinite alternate;
 }
 
@@ -554,7 +545,7 @@ main .comunidade .baixo .right form .input label{
 
 main .comunidade .baixo .right form .input .active {
     transform: translateY(-30px);
-    background-color: white;
+    background-color: var(--terciary-color);
     font-size: 10px;
 }
 
@@ -574,6 +565,7 @@ main .comunidade .baixo .right form .input input{
     border-radius: 13px;
     outline: none;
     border: 1px solid var(--primary-color);
+    background-color: transparent;
 }
 
 main .comunidade .baixo .right form button{
@@ -705,14 +697,61 @@ footer .end .right .ig:hover{
     background-color: #d6249f;
     color: white;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1080px) {
     
     main .course-infos .modules {
         --quantity-view: 3;
     }
+    .menu .content-max .right-menu{
+        display: none;
+    }
+    :root{
+        --screen-margin:10px;
+    }
 
 }
 
+@media (max-width: 991px) {
+    
+    header h1{
+        font-size: 30pt;
+    }
+    header p{
+        font-size: 12pt;
+    }
+    header .right img{
+        height: 400px;
+        flex: none;
+    }
+
+}
+@media (max-width: 900px) {
+
+ 
+    header{
+        padding-top: var(--navbar-height);
+    }
+    header .max-content{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    header .max-content .left{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    header .btns-header{
+        width: 100%;
+    }
+    header .btns-header .eu-quero{
+        width: 100%;
+    }
+
+
+}
 @media (max-width: 853px) {
     
     main .course-infos .modules {
