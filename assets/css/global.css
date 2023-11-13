@@ -45,7 +45,7 @@
 body {
     background-color: var(--terciary-color);
     color: var(--text-color);
-    overflow-x: hidden;
+
 }
 
 body::-webkit-scrollbar{
@@ -152,6 +152,43 @@ mark {
     transition: .3s ease;
 
 }
+.menu .content-max .mobile{
+    display: none;
+}
+.menu .content-max .mobile ul{
+    display: flex;
+    gap: 10px;
+}
+.menu .content-max .mobile ul li{
+    list-style-type: none;
+}
+.menu .content-max .mobile ul li a{
+    text-decoration: none;
+}
+.menu .content-max .mobile ul li button{
+    background-color: var(--primary-color);
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.menu .content-max .mobile .buguer{
+    background-color: var(--primary-color);
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+}
 .menu .right-menu ul li a .btn-navbar:hover{
     background: var(--primary-color);
 }
@@ -177,4 +214,74 @@ mark {
     top: calc(100% + 5px);
     
 }
+.menu .right-menu ul .navbar-animation .mobile-target{
+    display: none;
+}
 
+
+@media (max-width: 1080px) {
+    
+    main .course-infos .modules {
+        --quantity-view: 3;
+    }
+
+    .menu .content-max .right-menu{
+        position: fixed;
+        width: 100%;
+        max-width: 300px;
+        background-color:var(--terciary-color);
+        height: 100vh;
+        z-index: 999px;
+        top: 0;
+        left: 0;
+        padding: 30px 20px;
+        overflow: auto;
+        transition: all .6s ease;
+    }
+    .menu .content-max .hidden{
+        transform: translateX(-100%) !important;
+    }
+    .menu .content-max .right-menu ul{
+        flex-direction: column;
+    }
+    .menu .right-menu .navbar-animation{
+        flex-direction: column;
+        width: 100%;
+    }
+    .menu .right-menu .navbar-animation .line{
+        display: none;
+    }
+    .menu .right-menu ul li a button{
+        width: 100%;
+        height: 50px;
+        background-color: var(--primary-color-opacity);
+        border-radius: 10px;
+    }
+    .menu .right-menu ul .btns-div-navbar{
+        width: 100%;
+    }
+    .menu .right-menu ul li{
+        width: 100%;
+    }
+    .menu .right-menu ul li a{
+        width: 100%;
+    }
+    .menu .right-menu ul li a .btn-navbar{
+        width: 100%;
+        border-radius: 10px;
+        height: 40px;
+    }
+    .menu .right-menu ul .navbar-animation .mobile-target{
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    .menu .right-menu ul .navbar-animation .mobile-target .buguer{
+        cursor: pointer;
+        color: var(--primary-color);
+        font-size: 60px;
+    }
+    .menu .content-max .mobile{
+        display: flex;
+    }
+}

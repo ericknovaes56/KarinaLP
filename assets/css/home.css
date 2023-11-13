@@ -12,23 +12,27 @@ header .max-content {
     padding-top:0 ;
     height: 100%;
     gap: 15px;
+    margin-bottom: var(--navbar-height);
 }
 
 header h1{
     font-family: 'Raleway';
     font-weight:900;
     font-size: 58pt;
+    color: var(--primary-color);
 }
 
 header p{
     max-width: 550px;
     font-size: 14pt;
+    color: var(--primary-color);
 }
 
 header .btns-header{
     display: flex;
     gap: 15px;
     margin-top: 15px;
+    width: 100%;
 }
 
 header .btns-header .eu-quero{
@@ -66,7 +70,6 @@ header .right{
     position: relative;
     flex: none;
 }
-
 header .right img{
     max-width: 100%;
     height: 500px;
@@ -78,14 +81,16 @@ header .right .card{
     height: fit-content;
     object-fit: contain;
 }
-
-header .right .card:nth-child(1){
+.none{
+    display: none;
+}
+header .right .card1{
     top: 30px;
-    left: -50px;
+    left: -30px;
     animation: toptodown1 5s ease-in-out infinite alternate;
 }
 
-header .right .card:last-child{
+header .right .card2{
     top: 200px;
     right: -50px ;
     animation: toptodown2 5s ease-in-out infinite alternate;
@@ -108,7 +113,30 @@ header .right .card:last-child{
         transform: translateY(50px);
     }
 }
-
+header .right .tags{
+    position: absolute;
+    background-color: var(--primary-color);
+    padding: 5px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: normal;
+    text-transform: uppercase;
+    display: none;
+}
+header .right .tags:nth-child(1){
+    right: -30px;
+    top: 100px;
+    z-index: -1;
+}
+header .right .tags:nth-child(2){
+    top: 280px;
+    transform: translateX(-30%);
+}
+header .right .tags:nth-child(3){
+    top: 350px;
+    right: 0;
+    transform: translateX(30%);
+}
 main {
     display: flex;
     flex-direction: column;
@@ -406,6 +434,7 @@ main .person-infomation .title{
     justify-content: start;
     font-size: 38pt;
     font-family: Raleway;
+    text-align: start;
 }
 main .person-infomation .text{
     font-size: 15pt;
@@ -697,21 +726,8 @@ footer .end .right .ig:hover{
     background-color: #d6249f;
     color: white;
 }
-@media (max-width: 1080px) {
-    
-    main .course-infos .modules {
-        --quantity-view: 3;
-    }
-    .menu .content-max .right-menu{
-        display: none;
-    }
-    :root{
-        --screen-margin:10px;
-    }
-
-}
-
 @media (max-width: 991px) {
+
     
     header h1{
         font-size: 30pt;
@@ -727,7 +743,9 @@ footer .end .right .ig:hover{
 }
 @media (max-width: 900px) {
 
- 
+    :root{
+        --screen-margin:10px;
+    }
     header{
         padding-top: var(--navbar-height);
     }
@@ -742,6 +760,7 @@ footer .end .right .ig:hover{
         align-items: center;
         flex-direction: column;
         text-align: center;
+        transform: translateY(-20%);
     }
     header .btns-header{
         width: 100%;
