@@ -9,7 +9,7 @@ header .max-content {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-top:0 ;
+    padding-top: 0;
     height: 100%;
     gap: 15px;
 }
@@ -155,12 +155,12 @@ main section .icon.blob {
     left: 50%;
     transform: translateX(-50%);
     border-radius: 0 0 calc(var(--size) / 2) calc(var(--size) / 2);
-    height: 100px;
+    height: 80px;
 }
 
 main section .icon.blob::before, main section .icon.blob::after {
     --width: 100px;
-    --radius: 30px;
+    --radius: 40px;
     content: '';
     position: absolute;
     top: 0;
@@ -352,6 +352,25 @@ main .course-infos .modules .wrapper .module .cover .tab h2 {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 12pt;
+}
+
+main .course-infos .modules .wrapper .module .cover .media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    overflow: hidden;
+}
+
+main .course-infos .modules .wrapper .module .cover .media * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
 }
 
 main .course-infos .modules .wrapper .module .content {
