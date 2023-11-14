@@ -30,6 +30,10 @@ btnsNavBar.forEach((button, i) => {
   if (i === 0) {
     setLineOnButton(button)
   }
+  button.addEventListener("click",()=>{
+    var rightmenu = menu.querySelector(".right-menu")
+    rightmenu.classList.toggle("hidden")
+  })
 
 });
 
@@ -141,5 +145,14 @@ cards.forEach(card => {
       const realHeight = card.scrollHeight
       card.style.height=realHeight+'px'
     }
+  })
+});
+
+const buguer = document.querySelectorAll(".buguer")
+
+buguer.forEach(element => {
+  element.addEventListener("click", ()=>{
+    var rightmenu = menu.querySelector(".right-menu")
+    rightmenu.classList.toggle("hidden")
   })
 });
