@@ -257,6 +257,7 @@ main .course-infos .modules .controls {
     left: 0;
     width: 100%;
     height: 100%;
+    padding: 0 20px;
 }
 
 main .course-infos .modules .controls button {
@@ -272,20 +273,26 @@ main .course-infos .modules .controls button {
     cursor: pointer;
 }
 
-main .course-infos .modules .controls button.left {
+main .course-infos .modules .controls button[data-direction="left"] {
     transform: translateX(-50%);
 }
 
-main .course-infos .modules .controls button.right {
+main .course-infos .modules .controls button[data-direction="right"] {
     transform: translateX(50%);
 }
 
+main .course-infos .modules .overflow {
+    overflow: hidden;
+    padding: 0 20px;
+}
+
 main .course-infos .modules .wrapper {
-    --gap: 20px;
-    --quantity-view: 4;
+    --gap: 25px;
+    --quantity-view: 3;
     display: flex;
     gap: var(--gap);
-    overflow-x: auto;
+    position: relative;
+    transition: .3s ease;
 }
 
 main .course-infos .modules .wrapper::-webkit-scrollbar {
@@ -294,24 +301,23 @@ main .course-infos .modules .wrapper::-webkit-scrollbar {
 
 main .course-infos .modules .wrapper .module {
     --min-width: calc(((100% - (var(--gap) * (var(--quantity-view) - 1))) / var(--quantity-view)));
-    --max-width: 550px;
+    --max-width: 730px;
     display: flex;
     padding: 20px;
     gap: 20px;
     position: relative;
     width: var(--min-width);
-    height: 360px;
+    height: 480px;
     background-color: var(--terciary-color);
     flex: none;
     border-radius: 25px;
     transition: .5s ease;
     transition-delay: .5s;
-    cursor: pointer;
     color: var(--text-color);
-    overflow: hidden;
+    counter-increment: modules;
 }
 
-main .course-infos .modules .wrapper .module:hover {
+main .course-infos .modules .wrapper .module.open {
     width: var(--max-width);
 }
 
@@ -325,12 +331,13 @@ main .course-infos .modules .wrapper .module .cover {
     background-size: cover;
     width: 100%;
     transition: inherit;
-    border-radius: 25px;
+    border-radius: 20px;
     padding: 20px;
     position: relative;
+    cursor: pointer;
 }
 
-main .course-infos .modules .wrapper .module:hover .cover {
+main .course-infos .modules .wrapper .module.open .cover {
     width: 50%;
 }
 
@@ -344,10 +351,16 @@ main .course-infos .modules .wrapper .module .cover::after {
     background: linear-gradient(to right, transparent, var(--terciary-color));
     opacity: 0;
     transition: inherit;
+    pointer-events: none;
 }
 
-main .course-infos .modules .wrapper .module:hover .cover::after {
+main .course-infos .modules .wrapper .module.open .cover::after {
     opacity: 1;
+}
+
+main .course-infos .modules .wrapper .module.open .cover:hover::after {
+    opacity: .5;
+    transition: .3s ease;
 }
 
 main .course-infos .modules .wrapper .module .cover .tab {
@@ -360,10 +373,18 @@ main .course-infos .modules .wrapper .module .cover .tab {
     border-radius: var(--cylinder-radius);
     font-weight: bold;
     z-index: 2;
+    transition: .3s ease;
 }
 
-main .course-infos .modules .wrapper .module .cover .tab .number {
+main .course-infos .modules .wrapper .module:is(.open, :hover) .cover .tab {
+    margin-right: -20px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+main .course-infos .modules .wrapper .module .cover .tab::before {
     --size: 30px;
+    content: counter(modules);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -398,7 +419,7 @@ main .course-infos .modules .wrapper .module .cover .media * {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000000;
+    object-fit: cover;
 }
 
 main .course-infos .modules .wrapper .module .content {
@@ -410,8 +431,6 @@ main .course-infos .modules .wrapper .module .content {
     width: calc((var(--max-width) - 50%) - (var(--margin) * 2));
     height: calc(100% - (var(--margin) * 2));
     opacity: 0;
-    transition: inherit;
-    transition-delay: .8s;
     position: absolute;
     pointer-events: none;
     top: var(--margin);
@@ -421,11 +440,48 @@ main .course-infos .modules .wrapper .module .content {
     transform: translateX(var(--margin));
     border-radius: var(--default-radius);
     padding: 20px;
+    transition: opacity .5s ease;
 }
 
-main .course-infos .modules .wrapper .module:hover .content {
+main .course-infos .modules .wrapper .module.open .content {
     opacity: 1;
     pointer-events: auto;
+    transition: .5s .8s ease;
+}
+
+main .course-infos .modules .wrapper .module .content img {
+    max-width: 100%;
+}
+
+main .course-infos .modules .wrapper .module .open-btn {
+    --size: 40px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    transform: translateX(50%) translateY(-50%);
+    width: var(--size);
+    height: var(--size);
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: 4px solid #ffffff;
+    border-radius: var(--cylinder-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    pointer-events: none;
+    opacity: 0;
+    transition: .3s ease;
+}
+
+main .course-infos .modules .wrapper .module:hover .open-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+main .course-infos .modules .wrapper .module.open .open-btn {
+    transform: translateX(50%) translateY(-50%) rotate(180deg);
 }
 
 main .person-infomation{
@@ -500,35 +556,15 @@ main .feedbacks .wrapper .feedback {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    padding: 20px;
 }
 
-main .feedbacks .wrapper .feedback::before {
-    content: '';
-    background-color: #00000020;
-    position: absolute;
-    top: 0;
-    left: 0;
+main .feedbacks .wrapper .feedback iframe {
     width: 100%;
     height: 100%;
-    border-radius: inherit;
-    transition: .3s ease;
-    opacity: 0;
-}
-
-main .feedbacks .wrapper .feedback::after {
-    --clip-path: polygon(0 0, 100% 50%, 0 100%);
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 50px;
-    height: 50px;
-    transform: translate3d(-50%, -50%, 0);
-    clip-path: var(--clip-path);
-    -moz-clip-path: var(--clip-path);
-    -webkit-clip-path: var(--clip-path);
-    background-color: var(--primary-color);
-    opacity: 0;
+    border: none;
+    border-radius: 20px;
+    object-fit: cover;
 }
 
 main .feedbacks .wrapper .feedback:hover::before, main .feedbacks .wrapper .feedback:hover::after {
