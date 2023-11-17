@@ -45,6 +45,7 @@
 body {
     background-color: var(--terciary-color);
     color: var(--text-color);
+    overflow-x: hidden;
 
 }
 
@@ -188,6 +189,7 @@ mark {
     color: white;
     font-size: 20px;
     border-radius: 10px;
+    cursor: pointer;
 }
 .menu .right-menu ul li a .btn-navbar:hover{
     background: var(--primary-color);
@@ -234,7 +236,7 @@ mark {
         z-index: 999px;
         top: 0;
         left: 0;
-        padding: 30px 20px;
+        padding: 10px 20px;
         overflow: auto;
         transition: all .6s ease;
     }
@@ -279,7 +281,7 @@ mark {
     .menu .right-menu ul .navbar-animation .mobile-target .buguer{
         cursor: pointer;
         color: var(--primary-color);
-        font-size: 60px;
+        font-size: 50px;
     }
     .menu .content-max .mobile{
         display: flex;
