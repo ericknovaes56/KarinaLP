@@ -3,8 +3,9 @@ const distance = '30px',
       delay = 100
 
 
+document.addEventListener('DOMContentLoaded', function() {
 
-document.addEventListener("DOMContentLoaded", function() {
+
   const sr = ScrollReveal();
   sr.reveal('.reveal', {
     origin: 'top',
@@ -34,4 +35,5 @@ document.addEventListener("DOMContentLoaded", function() {
     delay: delay,
     reset:true,
   });
+
 });
