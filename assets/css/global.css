@@ -59,6 +59,7 @@ body {
     background-color: var(--terciary-color);
     color: var(--text-color);
 
+
 }
 
 strong {
@@ -116,6 +117,10 @@ mark {
     --size: 80px;
     width: var(--size);
 }
+
+.menu .right-menu {
+    touch-action: none;
+}
 .menu .right-menu ul{
     display: flex;
     align-items: center;
@@ -125,7 +130,7 @@ mark {
 .menu .right-menu ul li{
     list-style-type: none;
 }
-.menu .right-menu ul li a button{
+.menu .right-menu ul li button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,6 +144,9 @@ mark {
     outline: none;
     user-select: none;
     color: var(--primary-color);
+}
+.menu .right-menu ul li .show-color{
+    background-color: rgba(143, 140, 140, 0.096);
 }
 .menu .right-menu ul li a button:hover{
     background-color: rgba(143, 140, 140, 0.096);
@@ -198,6 +206,7 @@ mark {
     color: white;
     font-size: 20px;
     border-radius: 10px;
+    cursor: pointer;
 }
 .menu .right-menu ul li a .btn-navbar:hover{
     background: var(--primary-color);
@@ -227,7 +236,11 @@ mark {
 .menu .right-menu ul .navbar-animation .mobile-target{
     display: none;
 }
-
+.menu .right-menu ul .navbar-animation .mobile-target  img{
+    background-color: rgba(204, 202, 202, 0.281);
+    padding: 10px;
+    border-radius: 15px;
+}
 
 @media (max-width: 1080px) {
     
@@ -244,7 +257,7 @@ mark {
         z-index: 999px;
         top: 0;
         left: 0;
-        padding: 30px 20px;
+        padding: 5px 20px;
         overflow: auto;
         transition: all .6s ease;
     }
@@ -261,7 +274,7 @@ mark {
     .menu .right-menu .navbar-animation .line{
         display: none;
     }
-    .menu .right-menu ul li a button{
+    .menu .right-menu ul li button{
         width: 100%;
         height: 50px;
         background-color: var(--primary-color-opacity);
@@ -273,9 +286,6 @@ mark {
     .menu .right-menu ul li{
         width: 100%;
     }
-    .menu .right-menu ul li a{
-        width: 100%;
-    }
     .menu .right-menu ul li a .btn-navbar{
         width: 100%;
         border-radius: 10px;
@@ -284,12 +294,12 @@ mark {
     .menu .right-menu ul .navbar-animation .mobile-target{
         display: flex;
         justify-content: space-between;
-        align-items: baseline;
+        align-items: center;
     }
     .menu .right-menu ul .navbar-animation .mobile-target .buguer{
         cursor: pointer;
         color: var(--primary-color);
-        font-size: 60px;
+        font-size: 50px;
     }
     .menu .content-max .mobile{
         display: flex;

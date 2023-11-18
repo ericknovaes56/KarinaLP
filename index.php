@@ -11,3 +11,4 @@ $router->namespace("App\Core\Controller");
 $router->get("/", "Pages\Home:render");
 
 $router->dispatch();
+

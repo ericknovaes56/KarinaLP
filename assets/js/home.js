@@ -3,6 +3,9 @@ import Utils from './utils.js'
 const btnsNavBar = document.querySelectorAll(".navbtn")
 const line = document.querySelector('.line')
 const menu = document.querySelector(".menu")
+
+var scrollSide
+
 const courseInfos = {
   self: document.querySelector('.course-infos'),
   modules: {
@@ -107,14 +110,15 @@ courseInfos.modules.wrapper.childs.forEach((module, index, modules) => {
 
 btnsNavBar.forEach((button, i) => {
 
-  var data = button.parentNode.hash
+  let data = button.dataset.target
 
   if (data){
 
-    var getElement = document.querySelector(data)
+    var getElement = document.querySelector("#"+data)
 
     if(getElement){
       sectionsArray.push(getElement)
+      console.log(sectionsArray)
     }
 
   }
@@ -123,8 +127,50 @@ btnsNavBar.forEach((button, i) => {
     setLineOnButton(button)
   }
   button.addEventListener("click",()=>{
-    var rightmenu = menu.querySelector(".right-menu")
+
+    const rightmenu = menu.querySelector(".right-menu")
     rightmenu.classList.toggle("hidden")
+
+    let data = button.dataset.target
+
+    sectionsArray.forEach(section => {
+  
+      if(section.id == data){
+
+
+
+        const elementTop = section.offsetTop - menu.clientHeight
+        var scrollY = window.scrollY - 60
+
+        if (scrollY < 60){
+          window.scrollTo(0,elementTop)
+          return
+        }
+
+        if (elementTop >= scrollY){
+          scrollY = window.scrollY - 60
+          window.scrollTo(0,scrollY)
+
+          setTimeout(() => {
+            window.scrollTo(0,elementTop)
+          }, 500);
+  
+        }else{
+
+          scrollY = window.scrollY + 60
+          window.scrollTo(0,scrollY)
+
+          setTimeout(() => {
+            window.scrollTo(0,elementTop)
+          }, 500);
+
+        }
+
+
+      }
+    });
+
+
   })
 
 });
@@ -135,6 +181,7 @@ if (sectionsArray.length == 0){
 
 window.addEventListener("scroll", (e) => {
 
+
   sectionsArray.forEach(section => {
     
     var scrollTop = window.scrollY;
@@ -144,15 +191,21 @@ window.addEventListener("scroll", (e) => {
 
     if (scrollTop < sectionsArray[0].offsetTop - menu.clientHeight - 60){
       setLineOnButton(btnsNavBar[0])
+      btnsNavBar[0].classList.add('show-color')
+      btnsNavBar[1].classList.remove('show-color')
       return
     }
 
     if (scrollTop >= posicaoElementoTop && scrollTop <= posicaoElementoDown){
       btnsNavBar.forEach(button => {
-        var parent = button.parentNode.hash.replace('#', "")
+  
+        var parent = button.dataset.target
 
         if ( parent == section.id){
           setLineOnButton(button)
+          button.classList.add('show-color')
+        }else{
+          button.classList.remove('show-color')
         }
       
       });
