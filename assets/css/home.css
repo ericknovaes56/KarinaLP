@@ -3,6 +3,7 @@ header{
     justify-content: center;
     min-height: calc(798px - var(--navbar-height));
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 header .max-content {
@@ -92,7 +93,7 @@ header .right .card1{
 
 header .right .card2{
     top: 200px;
-    right: -50px ;
+    right: -30px ;
     animation: toptodown2 5s ease-in-out infinite alternate;
 }
 
@@ -142,6 +143,7 @@ main {
     flex-direction: column;
     gap: 40px;
     width: 100%;
+    overflow-x: hidden;
 }
 
 main section {
@@ -805,7 +807,7 @@ footer .end .right .ig:hover{
 }
 @media (max-width: 1028px){
     main .person-infomation .right img{
-        height: 400px;
+        height: auto;
     }
 }
 @media (max-width: 996px) {
@@ -841,6 +843,15 @@ footer .end .right .ig:hover{
     main .comunidade .baixo .right form{
         padding: 0;
     }
+    footer .end {
+        flex-direction: column;
+        gap: 20px;
+    }
+    footer .end .left span{
+        display: flex;
+       text-align: center;
+       width: 100%;
+    }
 }
 @media (max-width: 853px) {
     
@@ -875,5 +886,8 @@ footer .end .right .ig:hover{
 @media (max-width: 530px){
     footer .questions .card .title-card > h1{
         font-size: 14px;
+    }
+    footer .end .left span{
+        font-size: 13px;
     }
 }
