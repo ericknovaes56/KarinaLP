@@ -4,6 +4,7 @@ const btnsNavBar = document.querySelectorAll(".navbtn")
 const line = document.querySelector('.line')
 const menu = document.querySelector(".menu")
 
+var scrollSide
 
 const courseInfos = {
   self: document.querySelector('.course-infos'),
@@ -135,8 +136,37 @@ btnsNavBar.forEach((button, i) => {
     sectionsArray.forEach(section => {
   
       if(section.id == data){
+
+
+
         const elementTop = section.offsetTop - menu.clientHeight
-        window.scrollTo(0,elementTop)
+        var scrollY = window.scrollY - 60
+
+        if (scrollY < 60){
+          window.scrollTo(0,elementTop)
+          return
+        }
+
+        if (elementTop >= scrollY){
+          scrollY = window.scrollY - 60
+          window.scrollTo(0,scrollY)
+
+          setTimeout(() => {
+            window.scrollTo(0,elementTop)
+          }, 500);
+  
+        }else{
+
+          scrollY = window.scrollY + 60
+          window.scrollTo(0,scrollY)
+
+          setTimeout(() => {
+            window.scrollTo(0,elementTop)
+          }, 500);
+
+        }
+
+
       }
     });
 
@@ -150,6 +180,7 @@ if (sectionsArray.length == 0){
 }
 
 window.addEventListener("scroll", (e) => {
+
 
   sectionsArray.forEach(section => {
     
