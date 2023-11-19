@@ -4,6 +4,8 @@ const btnsNavBar = document.querySelectorAll(".navbtn")
 const line = document.querySelector('.line')
 const menu = document.querySelector(".menu")
 
+const sectionsArray = []
+
 var scrollSide
 
 const courseInfos = {
@@ -21,6 +23,14 @@ const courseInfos = {
   }
 }
 
+const feedbacksSection = {
+  self: document.querySelector('.feedbacks'),
+  wrapper: {
+    self: document.querySelector('.feedbacks .wrapper'),
+    childs: document.querySelectorAll('.feedbacks .wrapper .feedback'),
+  },
+}
+
 const scrollCarousel = (container, data = {}) => {
 
   const { direction, strength, childTarget } = data
@@ -29,7 +39,7 @@ const scrollCarousel = (container, data = {}) => {
   const currentPosition = Boolean(container.style.transform) ? Number(container.style.transform.replace(/\D/g, '')) : 0
   const maxPosition = Array.from(container.children).map(c => c.offsetLeft + c.clientWidth).reduce((p, c) => c) - container.clientWidth
 
-  let newPosition = currentPosition + (strength * directionNumber[direction])
+  let newPosition = (direction && strength) ? currentPosition + (strength * directionNumber[direction]) : currentPosition
 
   if(childTarget){
 
@@ -37,11 +47,17 @@ const scrollCarousel = (container, data = {}) => {
 
   }
 
+  console.log(`current: ${Utils.minmax(newPosition, 0, maxPosition)}px; max: ${maxPosition}`)
+
   container.style.transform = `translateX(-${Utils.minmax(newPosition, 0, maxPosition)}px)`
 
 }
 
-const sectionsArray = []
+const WindowResizeObserver = new ResizeObserver(() => {
+
+  scrollCarousel(courseInfos.modules.wrapper.self)
+
+})
 
 const setLineOnButton = (button) => {
 
@@ -51,6 +67,10 @@ const setLineOnButton = (button) => {
   line.style.left = corresao + 'px';
 
 }
+
+WindowResizeObserver.observe(document.body, {
+  box: 'border-box'
+})
 
 courseInfos.modules.controls.buttons.forEach((button) => {
   
@@ -103,6 +123,30 @@ courseInfos.modules.wrapper.childs.forEach((module, index, modules) => {
     scrollCarousel(courseInfos.modules.wrapper.self, {
       childTarget: module,
     })
+
+  })
+
+})
+
+feedbacksSection.wrapper.childs.forEach((feedback) => {
+
+  const playButton = feedback.querySelector('.play')
+  const closeButton = feedback.querySelector('.close')
+  const video = feedback.querySelector('iframe')
+
+  playButton.addEventListener('click', () => {
+
+    Array.from(feedbacksSection.wrapper.childs).filter((f) => f != feedback).forEach((f) => f.classList.remove('playing'))
+
+    feedback.classList.add('playing')
+    
+  })
+  
+  closeButton.addEventListener('click', () => {
+
+    feedback.classList.remove('playing')
+
+    video.src = video.src
 
   })
 

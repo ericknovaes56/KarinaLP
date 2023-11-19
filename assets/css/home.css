@@ -248,6 +248,7 @@ main .course-infos {
 
 main .course-infos .modules {
     width: 100%;
+    position: relative;
 }
 
 main .course-infos .modules .controls {
@@ -305,7 +306,7 @@ main .course-infos .modules .wrapper .module {
     --min-width: calc(((100% - (var(--gap) * (var(--quantity-view) - 1))) / var(--quantity-view)));
     --max-width: 730px;
     display: flex;
-    padding: 20px;
+    padding: 10px;
     gap: 20px;
     position: relative;
     width: var(--min-width);
@@ -458,7 +459,7 @@ main .course-infos .modules .wrapper .module .content img {
 main .course-infos .modules .wrapper .module .open-btn {
     --size: 40px;
     position: absolute;
-    top: 60px;
+    top: 50px;
     right: 0;
     transform: translateX(50%) translateY(-50%);
     width: var(--size);
@@ -475,6 +476,7 @@ main .course-infos .modules .wrapper .module .open-btn {
     pointer-events: none;
     opacity: 0;
     transition: .3s ease;
+    z-index: 2;
 }
 
 main .course-infos .modules .wrapper .module:hover .open-btn {
@@ -573,8 +575,39 @@ main .feedbacks .wrapper .feedback {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    padding: 20px;
+    padding: 10px;
     color: var(--text-color);
+}
+
+main .feedbacks .wrapper .feedback .close {
+    --size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    z-index: 3;
+    width: var(--size);
+    height: var(--size);
+    background-color: var(--terciary-color);
+    fill: var(--primary-color);
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+main .feedbacks .wrapper .feedback.playing .close {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+main .feedbacks .wrapper .feedback .close svg {
+    width: calc(var(--size) * .4);
+    height: calc(var(--size) * .4);
 }
 
 main .feedbacks .wrapper .feedback .cover {
@@ -589,6 +622,17 @@ main .feedbacks .wrapper .feedback .cover {
     border-radius: 20px;
     z-index: 2;
     position: relative;
+    transition: .5s ease;
+    border-radius: inherit;
+}
+
+main .feedbacks .wrapper .feedback.playing .cover {
+    opacity: 0;
+    pointer-events: none;
+}
+
+main .feedbacks .wrapper .feedback .cover * {
+    z-index: 2;
 }
 
 main .feedbacks .wrapper .feedback .cover::before {
@@ -598,11 +642,15 @@ main .feedbacks .wrapper .feedback .cover::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, .8));
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, .5));
+    transition: .3s ease;
+    z-index: 1;
+    backdrop-filter: blur(30px);
+    border-radius: inherit;
 }
 
 main .feedbacks .wrapper .feedback .cover:hover::before {
-    opacity: .9;
+    opacity: .95;
 }
 
 main .feedbacks .wrapper .feedback .cover .photo {
@@ -611,29 +659,111 @@ main .feedbacks .wrapper .feedback .cover .photo {
     height: var(--size);
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, .3);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, .1);
+    position: relative;
+}
+
+main .feedbacks .wrapper .feedback .cover .photo::after {
+    content: '{{pronoun}}';
+    position: absolute;
+    top: 30%;
+    right: 0;
+    transform: translate3d(50%, -50%, 0);
     z-index: 2;
+    color: #ffffff;
+    background-color: var(--primary-color-opacity);
+    padding: 2px 12px;
+    border-radius: var(--cylinder-radius);
+    backdrop-filter: blur(3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
+    font-size: 10pt;
+}
+
+main .feedbacks .wrapper .feedback.he .cover .photo::after {
+    content: 'Aluno';
+}
+
+main .feedbacks .wrapper .feedback.she .cover .photo::after {
+    content: 'Aluna';
+}
+
+main .feedbacks .wrapper .feedback:nth-child(even) .cover .photo::after {
+    right: auto;
+    top: auto;
+    bottom: 30%;
+    left: 0;
+    transform: translate3d(-50%, 50%, 0);
+}
+
+main .feedbacks .wrapper .feedback .cover .photo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
 }
 
 main .feedbacks .wrapper .feedback .cover .name {
     font-weight: 500;
     color: var(--primary-color);
-    z-index: 2;
+}
+
+main .feedbacks .wrapper .feedback .cover .play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--cylinder-radius);
+    background-color: transparent;
+    border: 4px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: .3s ease;
+    cursor: pointer;
+    width: max-content;
+    gap: 10px;
+}
+
+main .feedbacks .wrapper .feedback .cover .play:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+main .feedbacks .wrapper .feedback .cover .play svg {
+    --size: 20px;
+    width: var(--size);
+    height: var(--size);
+    fill: currentColor;
+    transition: inherit;
+}
+
+main .feedbacks .wrapper .feedback .cover .play .text {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    opacity: 0;
+    transition: inherit;
+    margin-left: -10px;
+}
+
+main .feedbacks .wrapper .feedback .cover .play:hover .text {
+    width: 130px;
+    opacity: 1;
+    margin-left: 0;
 }
 
 main .feedbacks .wrapper .feedback :is(iframe, video, embed) {
     position: absolute;
-    inset: 20px;
-    width: calc(100% - 20px * 2);
-    height: calc(100% - 20px * 2);
+    inset: 10px;
+    width: calc(100% - 10px * 2);
+    height: calc(100% - 10px * 2);
     border: none;
-    border-radius: 20px;
+    border-radius: inherit;
     object-fit: cover;
     z-index: 1;
-}
-
-main .feedbacks .wrapper .feedback:hover::before, main .feedbacks .wrapper .feedback:hover::after {
-    opacity: 1;
 }
 
 main .comunidade .title{
@@ -889,6 +1019,11 @@ footer .end .right .ig:hover{
     header h1{
         font-size: 50px;
     }
+
+    main section .title {
+        flex-direction: column;
+    }
+
     main .comunidade .baixo .right form{
         padding: 0;
     }

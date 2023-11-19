@@ -11,7 +11,7 @@ class NavBar {
 
         ];
 
-        return View::render('Components/layout/navbar', $pageVars);
+        return View::render('Components/navbar', $pageVars);
     }
 
 }

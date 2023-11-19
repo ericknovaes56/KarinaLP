@@ -2,11 +2,15 @@
 
 namespace App\Core\Controller\Pages;
 
-use App\Core\Controller\Components\BaseStructure;
-use App\Core\Controller\Components\CourseInfos\CourseInfos;
-use App\Core\Controller\Components\Footer;
 use App\Utils\View;
+
+use App\Core\Controller\Components\BaseStructure;
 use App\Core\Controller\Components\NavBar;
+use App\Core\Controller\Components\CourseInfos\CourseInfos;
+use App\Core\Controller\Components\PersonInformation;
+use App\Core\Controller\Components\Feedbacks\Feedbacks;
+use App\Core\Controller\Components\Comunidade;
+use App\Core\Controller\Components\Footer;
 
 class Home {
 
@@ -15,7 +19,10 @@ class Home {
         $pageVars = [
             "navbar" => NavBar::render(),
             "mainSections" => implode("\r\n", [
-                CourseInfos::render()
+                CourseInfos::render(),
+                PersonInformation::render(),
+                Feedbacks::render(),
+                Comunidade::render(),
             ]),
             "footer"=> Footer::render()
         ];

@@ -9,7 +9,7 @@ class Footer {
             'cards' => View::render('Components/pergunta_card'),
         ];
 
-        return View::render("Components/layout/footer",$pageVars);
+        return View::render("Components/footer",$pageVars);
 
     }
 }
