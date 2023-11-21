@@ -916,7 +916,9 @@ footer .questions .card .title-card{
     user-select: none;
     gap: 20px;
 }
-
+footer .questions .card .title-card span{
+    transition: all .6s ease;
+}
 footer .questions .card:first-child .title-card{
     border-radius: 15px 15px 0px 0px ;
 }
@@ -937,7 +939,9 @@ footer .questions .card:last-child .content-incard{
 footer .questions .show:last-child .title-card{
     border-radius: 0 0px 0px 0px ;
 }
-
+footer .questions .show .title-card span{
+    transform: rotate(180deg);
+}
 footer .questions .card .content-incard{
     background-color: rgb(247, 247, 247);
     color: black;
