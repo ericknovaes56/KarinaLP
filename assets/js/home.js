@@ -4,6 +4,7 @@ const btnsNavBar = document.querySelectorAll(".navbtn")
 const line = document.querySelector('.line')
 const menu = document.querySelector(".menu")
 
+
 const sectionsArray = []
 
 var scrollSide
@@ -345,3 +346,118 @@ buguer.forEach(element => {
     rightmenu.classList.toggle("hidden")
   })
 });
+
+
+
+
+// invite form to table
+
+
+const formHome = document.querySelector('.form-home')
+
+
+formHome.addEventListener('submit', async (event) => {
+
+  event.preventDefault()
+
+  const button = formHome.querySelector('.enviar')
+  const formData = new FormData(formHome)
+
+  var dadosDoFormulario = {};
+
+  for (var pair of formData.entries()) {
+    dadosDoFormulario[pair[0]] = pair[1];
+  }
+
+  if (!dadosDoFormulario) return
+
+
+  for (var key in dadosDoFormulario) {
+    if (!dadosDoFormulario[key]) {
+        createAlert(false,"O campo '" + key + "' está vazio.");
+        return
+    }
+  }
+
+  button.innerHTML="<i class='bx bx-loader-alt bx-spin' style='color:#ffffff' ></i>"
+  button.setAttribute('disabled', 'true');
+
+
+  if (await inviteForm(dadosDoFormulario)){
+
+    button.innerHTML="Enviar"
+    button.removeAttribute('disabled');
+    formHome.reset()
+    allInputs.forEach(element => {
+
+      element.parentNode.querySelector('label').classList.remove('active')
+    
+    });
+
+  }
+
+
+
+})
+
+
+
+async function inviteForm(obj){
+  
+  var link = 'https://api.sheetmonkey.io/form/ayJt6t1vif8b6bwjG67FrY'
+
+  const formDataFields = obj
+
+  const requestSheetMonkey = await fetch(link, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formDataFields)
+  })
+
+  if(requestSheetMonkey.ok && requestSheetMonkey.status == 200){
+
+      createAlert(true,'Enviado com sucesso !')
+      return true
+      
+  } else {
+
+    createAlert(false , `failed Code -> ${requestSheetMonkey.status} fale com desenvolvedor`)()
+    return false
+
+  }
+
+}
+
+function createAlert(status, msg) {
+
+  const div = document.createElement('div')
+  div.classList.add('alert')
+
+  if (status) {
+
+    div.innerHTML="<i class='bx bxs-check-circle'></i>"+msg
+    div.classList.add('alert-success')
+
+  }else{
+
+    div.innerHTML="<i class='bx bxs-error'></i>"+msg
+    div.classList.add('alert-error')
+
+  }
+
+  document.body.appendChild(div)
+
+  setTimeout(() => {
+    div.classList.add('showing-alerts')
+  }, 500);
+
+  setTimeout(() => {
+    div.classList.remove('showing-alerts')
+    setTimeout(() => {
+      div.remove()
+    }, 1000);
+  }, 5000);
+    
+}

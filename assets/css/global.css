@@ -244,6 +244,41 @@ mark {
     border-radius: 15px;
 }
 
+.alert{
+    position: fixed;
+    right: 20px;
+    top: 100px;
+    height: 60px;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: all .6s ease;
+    gap: 15px;
+    z-index: 999;
+    transform: translateY(-100%);
+    opacity: 0;
+    padding: 0 30px;
+}
+.showing-alerts{
+
+    transform: translateY(0);
+    opacity: 1;
+
+}
+.alert i{
+    font-size: 20px;
+}
+.alert-success{
+    color: rgb(16, 187, 16);
+    background-color: #ceffd9;
+}
+.alert-error{
+    color: rgb(187, 16, 16);
+    background-color: #ffcece;
+}
 @media (max-width: 1080px) {
     
     main .course-infos .modules {

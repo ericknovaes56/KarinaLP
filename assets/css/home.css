@@ -516,7 +516,6 @@ main .person-infomation  .max-content{
     justify-content: space-between;
     margin-top: 0;
     margin-bottom: 0;
-    height: 500px;
 }
 main .person-infomation .right img{
     max-width: 100%;
@@ -1036,6 +1035,18 @@ footer .end .right .ig:hover{
        text-align: center;
        width: 100%;
     }
+
+    header .right img{
+        height: 400px ;
+    }
+    header .btns-header {
+        display: flex;
+        justify-content: center;
+    }
+    header .btns-header .eu-quero{
+        height: 45px;
+        max-width: 150px;
+    }
 }
 
 @media (max-width: 853px) {
@@ -1085,6 +1096,12 @@ footer .end .right .ig:hover{
     }
 }
 @media (max-width: 530px){
+    header h1{
+        font-size: 35px;
+    }
+    header p{
+        font-size: 15px;
+    }
     footer .questions .card .title-card > h1{
         font-size: 14px;
     }
