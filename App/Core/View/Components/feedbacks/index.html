@@ -11,8 +11,16 @@
             Feedback de Mentoradas
         </h1>
         <p class="description reveal">Veja o que nossas mentoradas dizem sobre o metodo 4k</p>
-        <div class="wrapper reveal">
-            {{feedbacks}}
+        <div class="carousel reveal">
+            <div class="controls">
+                <button data-direction="left">&lt;</button>
+                <button data-direction="right">&gt;</button>
+            </div>
+            <div class="overflow">
+                <div class="wrapper">
+                    {{feedbacks}}
+                </div>
+            </div>
         </div>
     </div>
 </section>

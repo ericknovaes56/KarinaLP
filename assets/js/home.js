@@ -1,64 +1,42 @@
 import Utils from './utils.js'
+import Carousel from './carousel.js'
 
 const btnsNavBar = document.querySelectorAll(".navbtn")
 const line = document.querySelector('.line')
 const menu = document.querySelector(".menu")
 
-
 const sectionsArray = []
 
-var scrollSide
+var scrollSide // <------------- Erick, que djabo de var é essa?
 
-const courseInfos = {
-  self: document.querySelector('.course-infos'),
-  modules: {
-    self: document.querySelector('.course-infos .modules'),
-    controls: {
-      self: document.querySelector('.course-infos .modules .controls'),
-      buttons: document.querySelectorAll('.course-infos .modules .controls button'),
-    },
-    wrapper: {
-      self: document.querySelector('.course-infos .modules .wrapper'),
-      childs: document.querySelectorAll('.course-infos .modules .wrapper .module')
-    }
-  }
+const carousels = {
+  modules: new Carousel('.course-infos .modules', '.wrapper', {
+    children: '.course-infos .modules .wrapper .module',
+    strength: function () {
+
+      const container = document.querySelector('.course-infos .modules .wrapper')
+      const { clientWidth } = container
+      const computedStyle = getComputedStyle(container)
+      
+      return clientWidth - (computedStyle.getPropertyValue('--gap').replace(/\D/g, '') * (computedStyle.getPropertyValue('--quantity-view') - 1))
+
+    }(),
+    scrollToChild: true,
+  }),
+  feedbacks: new Carousel('.feedbacks .carousel', '.wrapper', {
+    children: '.wrapper .feedback',
+    strength: function () {
+
+      const container = document.querySelector('.feedbacks .carousel .wrapper')
+      const { clientWidth } = container
+      const computedStyle = getComputedStyle(container)
+      
+      return clientWidth - (computedStyle.getPropertyValue('--gap').replace(/\D/g, '') * (computedStyle.getPropertyValue('--quantity-view') - 1))
+
+    }(),
+    scrollToChild: true,
+  }),
 }
-
-const feedbacksSection = {
-  self: document.querySelector('.feedbacks'),
-  wrapper: {
-    self: document.querySelector('.feedbacks .wrapper'),
-    childs: document.querySelectorAll('.feedbacks .wrapper .feedback'),
-  },
-}
-
-const scrollCarousel = (container, data = {}) => {
-
-  const { direction, strength, childTarget } = data
-  const directionNumber = { left: -1, right: 1 }
-  
-  const currentPosition = Boolean(container.style.transform) ? Number(container.style.transform.replace(/\D/g, '')) : 0
-  const maxPosition = Array.from(container.children).map(c => c.offsetLeft + c.clientWidth).reduce((p, c) => c) - container.clientWidth
-
-  let newPosition = (direction && strength) ? currentPosition + (strength * directionNumber[direction]) : currentPosition
-
-  if(childTarget){
-
-    newPosition = (childTarget.offsetLeft + childTarget.clientWidth / 2) - container.clientWidth / 2
-
-  }
-
-  console.log(`current: ${Utils.minmax(newPosition, 0, maxPosition)}px; max: ${maxPosition}`)
-
-  container.style.transform = `translateX(-${Utils.minmax(newPosition, 0, maxPosition)}px)`
-
-}
-
-const WindowResizeObserver = new ResizeObserver(() => {
-
-  scrollCarousel(courseInfos.modules.wrapper.self)
-
-})
 
 const setLineOnButton = (button) => {
 
@@ -69,27 +47,7 @@ const setLineOnButton = (button) => {
 
 }
 
-WindowResizeObserver.observe(document.body, {
-  box: 'border-box'
-})
-
-courseInfos.modules.controls.buttons.forEach((button) => {
-  
-  button.addEventListener('click', () => {
-
-    const { style: wrapperStyle, clientWidth: wrapperWidth } = courseInfos.modules.wrapper.self
-    const wrapperComputedStyle = getComputedStyle(courseInfos.modules.wrapper.self)
-
-    scrollCarousel(courseInfos.modules.wrapper.self, {
-      direction: button.dataset.direction,
-      strength: wrapperWidth - (wrapperComputedStyle.getPropertyValue('--gap').replace(/\D/g, '') * (wrapperStyle.getPropertyValue('--quantity-view') - 1))
-    })
-  
-  })
-
-})
-
-courseInfos.modules.wrapper.childs.forEach((module, index, modules) => {
+carousels.modules.children.forEach((module, index, modules) => {
 
   const openButton = module.querySelector('.open-btn')
   const media = module.querySelector('.media > *')
@@ -119,17 +77,9 @@ courseInfos.modules.wrapper.childs.forEach((module, index, modules) => {
 
   })
 
-  module.addEventListener('click', () => {
-
-    scrollCarousel(courseInfos.modules.wrapper.self, {
-      childTarget: module,
-    })
-
-  })
-
 })
 
-feedbacksSection.wrapper.childs.forEach((feedback) => {
+carousels.feedbacks.children.forEach((feedback, index, feedbacks) => {
 
   const playButton = feedback.querySelector('.play')
   const closeButton = feedback.querySelector('.close')
@@ -137,8 +87,8 @@ feedbacksSection.wrapper.childs.forEach((feedback) => {
 
   playButton.addEventListener('click', () => {
 
-    Array.from(feedbacksSection.wrapper.childs).filter((f) => f != feedback).forEach((f) => f.classList.remove('playing'))
-
+    Array.from(feedbacks).filter((f) => f != feedback).forEach((f) => f.classList.remove('playing'))
+    
     feedback.classList.add('playing')
     
   })
