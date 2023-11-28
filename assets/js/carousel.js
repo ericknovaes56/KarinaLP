@@ -3,20 +3,22 @@ import Utils from './utils.js'
 export default class Carousel {
 
     container
+    targetToScroll
     controls
     chidlren
+    strength
 
     constructor(container, targetToScroll, data = { strength, children, scrollToChild}) {
 
         try {
             
             container = (typeof container == 'string') ? document.querySelector(container) : container
+            targetToScroll = (typeof targetToScroll == 'string') ? container.querySelector(targetToScroll) : targetToScroll
             data.children = (typeof data.children == 'string') ? container.querySelectorAll(data.children) : data.children
 
             const acceptedTypes = [Node, HTMLElement, Element]
             const { strength, children, scrollToChild } = data
 
-            targetToScroll = (typeof targetToScroll == 'string') ? container.querySelector(targetToScroll) : targetToScroll
 
             if(acceptedTypes.every(obj => !(container instanceof obj) && (targetToScroll instanceof obj))){
 
@@ -25,11 +27,13 @@ export default class Carousel {
             }
 
             this.container = container
+            this.targetToScroll = targetToScroll
             this.controls = {
                 self: this.container.querySelector('.controls'),
                 buttons: this.container.querySelectorAll('.controls button')
             }
             this.children = children
+            this.strength = strength
 
             this.controls.buttons.forEach((button) => {
   
@@ -37,7 +41,7 @@ export default class Carousel {
                 
                     this.scrollCarousel(targetToScroll, {
                         direction: button.dataset.direction,
-                        strength: strength
+                        strength: this.strength
                     })
                     
                 })

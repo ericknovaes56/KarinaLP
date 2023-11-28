@@ -30,8 +30,10 @@ const carousels = {
       const container = document.querySelector('.feedbacks .carousel .wrapper')
       const { clientWidth } = container
       const computedStyle = getComputedStyle(container)
-      
-      return clientWidth - (computedStyle.getPropertyValue('--gap').replace(/\D/g, '') * (computedStyle.getPropertyValue('--quantity-view') - 1))
+      const gap = Number(computedStyle.getPropertyValue('--gap').replace(/\D/g, ''))
+      const quantityView = Number(computedStyle.getPropertyValue('--quantity-view'))
+  
+      return clientWidth + (gap * (quantityView - 1))
 
     }(),
     scrollToChild: true,
@@ -46,6 +48,24 @@ const setLineOnButton = (button) => {
   line.style.left = corresao + 'px';
 
 }
+
+const WindowResizeObserver = new ResizeObserver((entries, observer) => {
+
+  for(let [key, carousel] of Object.entries(carousels)){
+
+    const { clientWidth } = carousel.targetToScroll
+    const computedStyle = getComputedStyle(carousel.targetToScroll)
+    const gap = Number(computedStyle.getPropertyValue('--gap').replace(/\D/g, ''))
+    const quantityView = Number(computedStyle.getPropertyValue('--quantity-view'))
+
+    carousel.strength = clientWidth + (gap * (quantityView - 1))
+
+  }
+
+})
+
+WindowResizeObserver.observe(carousels.modules.container, { box: 'border-box' })
+WindowResizeObserver.observe(carousels.feedbacks.container, { box: 'border-box' })
 
 carousels.modules.children.forEach((module, index, modules) => {
 
