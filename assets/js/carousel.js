@@ -8,7 +8,7 @@ export default class Carousel {
     chidlren
     strength
 
-    constructor(container, targetToScroll, data = { strength, children, scrollToChild}) {
+    constructor(container, targetToScroll, data = {}) {
 
         try {
             
@@ -72,7 +72,7 @@ export default class Carousel {
         
     }
 
-    scrollCarousel (container, data = { direction, strength, childTarget }) {
+    scrollCarousel (container, data = {}) {
 
         const { direction, strength, childTarget } = data
         const directionNumber = { left: -1, right: 1 }

@@ -60,6 +60,8 @@ const WindowResizeObserver = new ResizeObserver((entries, observer) => {
 
     carousel.strength = clientWidth + (gap * (quantityView - 1))
 
+    carousel.scrollCarousel(carousel.targetToScroll)
+
   }
 
 })
