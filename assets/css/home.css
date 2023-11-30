@@ -491,9 +491,9 @@ main .course-infos .modules .wrapper .module.open .open-btn {
 main .person-infomation{
     display: flex;
     flex-direction: row;
-    min-height: calc(798px - var(--navbar-height));
+    min-height: calc(600px - var(--navbar-height));
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 
@@ -516,6 +516,7 @@ main .person-infomation  .max-content{
     justify-content: space-between;
     margin-top: 0;
     margin-bottom: 0;
+    height: 500px;
 }
 main .person-infomation .right img{
     max-width: 100%;
@@ -1065,24 +1066,11 @@ footer .end .right .ig:hover{
 
 }
 
-@media (max-width: 640px) {
 
-    main .course-infos .modules .wrapper {
-        --quantity-view: 1;
-    }
-
-}
-
-@media (max-width: 640px) {
-
-    main .course-infos .modules .wrapper {
-        --quantity-view: 1;
-    }
-
-}
 @media (max-width: 836px){
     main .person-infomation .max-content{
         flex-direction: column;
+        height: auto;
     }
     main .person-infomation .right{
         position: static;
@@ -1098,6 +1086,21 @@ footer .end .right .ig:hover{
     main .person-infomation .title{
         font-size: 40px;
     }
+}
+@media (max-width: 640px) {
+
+    main .course-infos .modules .wrapper {
+        --quantity-view: 1;
+    }
+
+}
+
+@media (max-width: 640px) {
+
+    main .course-infos .modules .wrapper {
+        --quantity-view: 1;
+    }
+
 }
 @media (max-width: 530px){
     header h1{
