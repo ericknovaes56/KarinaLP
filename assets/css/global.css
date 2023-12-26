@@ -279,11 +279,50 @@ mark {
     color: rgb(187, 16, 16);
     background-color: #ffcece;
 }
+
+.carousel {
+    position: relative;
+}
+
+.carousel .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.carousel .controls button {
+    width: 70px;
+    height: 50px;
+    border-radius: var(--cylinder-radius);
+    font-size: 16pt;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--terciary-color);
+    border: 5px solid var(--terciary-color);
+    z-index: 5;
+    cursor: pointer;
+}
+
+.carousel .controls button[data-direction="left"] {
+    transform: translateX(-50%);
+}
+
+.carousel .controls button[data-direction="right"] {
+    transform: translateX(50%);
+}
+
+.carousel .overflow {
+    overflow: hidden;
+    padding: 0 20px;
+}
+
 @media (max-width: 1080px) {
-    
-    main .course-infos .modules {
-        --quantity-view: 3;
-    }
 
     .menu .content-max .right-menu{
         position: fixed;
