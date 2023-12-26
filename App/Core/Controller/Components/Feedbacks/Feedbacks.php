@@ -13,31 +13,31 @@ class Feedbacks {
             [
                 "name" => "Aline",
                 "photo" => "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg",
-                "video" => "https://drive.google.com/file/d/1Pg5Fcb6ZdMlaVt9HpGtzPg6-1pdIsatV/preview",
+                "video" => "https://youtu.be/xFu-g4thN78",
                 "pronoun" => "she"
             ],
             [
                 "name" => "Prado",
                 "photo" => "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg",
-                "video" => "https://drive.google.com/file/d/1oZEpgjKjswmLixOfOYfAsINGP-kIb550/preview",
+                "video" => "https://youtu.be/Vx-OFbuYpVk",
                 "pronoun" => "she"
             ],
             [
                 "name" => "Tatiane",
                 "photo" => "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg",
-                "video" => "https://drive.google.com/file/d/1sAf0FMtCxkMP9cKH_ij3E3dOkU3vVP35/preview",
+                "video" => "https://youtu.be/JYpoKkBXYBo",
                 "pronoun" => "she"
             ],
             [
                 "name" => "Vanessa",
                 "photo" => "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg",
-                "video" => "https://drive.google.com/file/d/1NqZdQXdOB48n53Xy1KhByLdCcT_1X1hH/preview",
+                "video" => "https://www.youtube.com/watch?v=0rQ8xr_tDqk",
                 "pronoun" => "she"
             ],
             [
                 "name" => "\"Sem nome\"",
                 "photo" => "https://roadmap-tech.com/wp-content/uploads/2019/04/placeholder-image.jpg",
-                "video" => "https://drive.google.com/file/d/1fJJvbYdIUxKgdkrJ9uCSsq2x40c83vfF/preview",
+                "video" => "https://youtu.be/_vT7B66mRhM",
                 "pronoun" => "she"
             ],
         ];
