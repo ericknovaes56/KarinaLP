@@ -457,7 +457,6 @@ main .person-infomation{
     margin-bottom: 20px;
 }
 
-
 main .person-infomation .left {
     display: flex;
     flex-direction: column;
@@ -528,6 +527,309 @@ main .feedbacks .wrapper::-webkit-scrollbar {
 }
 
 main .feedbacks .wrapper .feedback {
+    --min-width: calc(((100% - (var(--gap) * (var(--quantity-view) - 1))) / var(--quantity-view)));
+    --max-width: 730px;
+    display: flex;
+    padding: 10px;
+    gap: 20px;
+    position: relative;
+    width: var(--min-width);
+    height: 480px;
+    background-color: var(--terciary-color);
+    flex: none;
+    border-radius: 25px;
+    transition: .5s ease;
+    transition-delay: .5s;
+    color: var(--text-color);
+    counter-increment: modules;
+}
+
+main .feedbacks .wrapper .feedback.open {
+    width: var(--max-width);
+}
+
+main .feedbacks .wrapper .feedback .open-btn { /* Botão de abrir conteudo lateral */
+    --size: 40px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    transform: translateX(50%) translateY(-50%);
+    width: var(--size);
+    height: var(--size);
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: 4px solid #ffffff;
+    border-radius: var(--cylinder-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    pointer-events: none;
+    opacity: 0;
+    transition: .3s ease;
+    z-index: 4;
+}
+
+main .feedbacks .wrapper .feedback.open .open-btn {
+    transform: translateX(50%) translateY(-50%) rotate(180deg);
+}
+
+main .feedbacks .wrapper .feedback:is(:hover, .open, .playing) .open-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+main .feedbacks .wrapper .feedback .cover {
+    --inner-padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    position: relative;
+    border-radius: inherit;
+    background-color: #00000030;
+    background-image: url('https://mrconfeccoes.com.br/wp-content/uploads/2018/03/default.jpg');
+    background-position: center;
+    background-size: cover;
+    transition: inherit;
+    cursor: pointer;
+}
+
+main .feedbacks .wrapper .feedback.open .cover {
+    width: 50%;
+}
+
+main .feedbacks .wrapper .feedback .cover * {
+    z-index: 3;
+}
+
+main .feedbacks .wrapper .feedback .cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, .5));
+    transition: .3s ease;
+    z-index: 2;
+    backdrop-filter: blur(30px);
+    border-radius: inherit;
+}
+
+main .feedbacks .wrapper .feedback .cover:hover::before {
+    opacity: .95;
+}
+
+main .feedbacks .wrapper .feedback .cover .close { /* Botão de fechar o video */
+    --size: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: absolute;
+    top: var(--inner-padding);
+    left: calc(100% - var(--size) - var(--inner-padding));
+    z-index: 3;
+    width: var(--size);
+    height: var(--size);
+    background-color: var(--terciary-color);
+    fill: var(--primary-color);
+    border-radius: calc(var(--size) * .5);
+    border: none;
+    box-shadow: -15px 15px 30px rgba(0, 0, 0, .4);
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+    transition: .3s ease, width .3s .5s ease, border-radius .3s .5s ease;
+}
+
+main .feedbacks .wrapper .feedback .cover .close svg {
+    position: absolute;
+    inset: calc(var(--size) / 2);
+    width: calc(var(--size) * .4);
+    height: calc(var(--size) * .4);
+    transform: translate3d(-50%, -50%, 0);
+}
+
+main .feedbacks .wrapper .feedback:is(:hover, .playing):not(.open) .cover .close {
+    width: calc(var(--size) + var(--inner-padding));
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+main .feedbacks .wrapper .feedback.playing .cover .close {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+main .feedbacks .wrapper .feedback .cover .photo {
+    --size: 75px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, .1);
+    position: relative;
+}
+
+main .feedbacks .wrapper .feedback .cover .photo::after {
+    content: '{{pronoun}}';
+    position: absolute;
+    top: 30%;
+    right: 0;
+    transform: translate3d(50%, -50%, 0);
+    z-index: inherit;
+    color: #ffffff;
+    background-color: var(--primary-color-opacity);
+    padding: 2px 12px;
+    border-radius: var(--cylinder-radius);
+    backdrop-filter: blur(3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
+    font-size: 10pt;
+}
+
+main .feedbacks .wrapper .feedback.he .cover .photo::after {
+    content: 'Aluno';
+}
+
+main .feedbacks .wrapper .feedback.she .cover .photo::after {
+    content: 'Aluna';
+}
+
+main .feedbacks .wrapper .feedback:nth-child(even) .cover .photo::after {
+    right: auto;
+    top: auto;
+    bottom: 30%;
+    left: 0;
+    transform: translate3d(-50%, 50%, 0);
+}
+
+main .feedbacks .wrapper .feedback .cover .photo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+main .feedbacks .wrapper .feedback .cover .name {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+main .feedbacks .wrapper .feedback .cover .play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--cylinder-radius);
+    background-color: transparent;
+    border: 4px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: .3s ease;
+    cursor: pointer;
+    width: max-content;
+    gap: 10px;
+}
+
+main .feedbacks .wrapper .feedback .cover .play:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+main .feedbacks .wrapper .feedback .cover .play svg {
+    --size: 20px;
+    width: var(--size);
+    height: var(--size);
+    fill: currentColor;
+    transition: inherit;
+}
+
+main .feedbacks .wrapper .feedback .cover .play .text {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    opacity: 0;
+    transition: inherit;
+    margin-left: -10px;
+}
+
+main .feedbacks .wrapper .feedback .cover .play:hover .text {
+    width: 130px;
+    opacity: 1;
+    margin-left: 0;
+}
+
+main .feedbacks .wrapper .feedback .cover .media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    overflow: hidden;
+    z-index: 1;
+}
+
+main .feedbacks .wrapper .feedback .cover .media * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    border-radius: inherit;
+    object-fit: cover;
+}
+
+main .feedbacks .wrapper .feedback.playing .cover::before, main .feedbacks .wrapper .feedback.playing .cover :is(.photo, .name, .play) {
+    opacity: 0;
+    pointer-events: none;
+}
+
+main .feedbacks .wrapper .feedback .content {
+    --margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    width: calc((var(--max-width) - 50%) - (var(--margin) * 2));
+    height: calc(100% - (var(--margin) * 2));
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+    top: var(--margin);
+    left: calc(var(--max-width) - 50%);
+    overflow: hidden;
+    overflow-y: auto;
+    transform: translateX(var(--margin));
+    border-radius: var(--default-radius);
+    padding: 20px;
+    transition: opacity .5s ease;
+}
+
+main .feedbacks .wrapper .feedback.open .content {
+    opacity: 1;
+    pointer-events: auto;
+    transition: .5s .8s ease;
+}
+
+main .feedbacks .wrapper .feedback .content img {
+    max-width: 100%;
+}
+
+/* main .feedbacks .wrapper .feedback {
     width: calc(((100% - (var(--gap) * (var(--quantity-view) - 1))) / var(--quantity-view)));
     height: 480px;
     border-radius: 25px;
@@ -725,7 +1027,7 @@ main .feedbacks .wrapper .feedback :is(iframe, video, embed) {
     border-radius: inherit;
     object-fit: cover;
     z-index: 1;
-}
+} */
 
 main .comunidade .title{
     flex-direction: column;

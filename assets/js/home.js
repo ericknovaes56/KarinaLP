@@ -73,7 +73,7 @@ carousels.modules.children.forEach((module, index, modules) => {
 
   const openButton = module.querySelector('.open-btn')
   const media = module.querySelector('.media > *')
-  const openModule = () => {
+  const open = () => {
 
     Array.from(modules).filter(m => m != module).forEach((m) => m.classList.remove('open'))
 
@@ -83,7 +83,7 @@ carousels.modules.children.forEach((module, index, modules) => {
 
   if(media.tagName == 'VIDEO'){
     
-    media.addEventListener('ended', openModule)
+    media.addEventListener('ended', open)
 
   }
 
@@ -95,7 +95,7 @@ carousels.modules.children.forEach((module, index, modules) => {
 
     }
 
-    openModule()
+    open()
 
   })
 
@@ -105,11 +105,40 @@ carousels.feedbacks.children.forEach((feedback, index, feedbacks) => {
 
   const playButton = feedback.querySelector('.play')
   const closeButton = feedback.querySelector('.close')
+  const openButton = feedback.querySelector('.open-btn')
   const video = feedback.querySelector('iframe')
+  const closeOthers = () => {
+
+    Array.from(feedbacks).filter(fb => fb != feedback).forEach((fb) => {
+
+      if(fb.classList.contains('playing')){
+        
+        fb.querySelector('iframe').src = fb.querySelector('iframe').src
+
+      }
+
+      fb.classList.remove('open', 'playing')
+
+    })
+
+  }
+  const open = () => {
+
+    closeOthers()
+
+    feedback.classList.toggle('open')
+
+    setTimeout(() => {
+
+      feedback.click()
+
+    }, 1000)
+
+  }
 
   playButton.addEventListener('click', () => {
 
-    Array.from(feedbacks).filter((f) => f != feedback).forEach((f) => f.classList.remove('playing'))
+    closeOthers()
     
     feedback.classList.add('playing')
     
@@ -120,6 +149,18 @@ carousels.feedbacks.children.forEach((feedback, index, feedbacks) => {
     feedback.classList.remove('playing')
 
     video.src = video.src
+
+  })
+
+  openButton.addEventListener('click', (e) => {
+
+    if(feedback.classList.contains('open')){
+      
+      e.stopPropagation()
+
+    }
+
+    open()
 
   })
 

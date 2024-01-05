@@ -1,8 +1,9 @@
 <div class="feedback {{pronoun}}">
-    <button class="close">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
-    </button>
+    <button class="open-btn">&gt;</button>
     <div class="cover">
+        <button class="close">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+        </button>
         <div class="photo">
             <img src="{{photo}}">
         </div>
@@ -11,6 +12,11 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path d="M3 22v-20l18 10-18 10z"/></svg>
             <span class="text">Ver feedback</span>
         </button>
+        <div class="media">
+            <iframe src="{{video}}?controls=0" loading="lazy"></iframe>
+        </div>
     </div>
-    <iframe src="{{video}}?controls=0" loading="lazy"></iframe>
+    <div class="content">
+        {{content}}
+    </div>
 </div>

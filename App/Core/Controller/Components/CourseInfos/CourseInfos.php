@@ -5,6 +5,7 @@ namespace App\Core\Controller\Components\CourseInfos;
 use App\Utils\View;
 
 use App\Core\Controller\Components\CourseInfos\Module;
+use App\Utils\Br;
 
 class CourseInfos {
 
@@ -19,31 +20,31 @@ class CourseInfos {
                 ],
                 "content" =>
                     "# Título Principal"
-                    ."\r\n".
+                    .Br::gen().
                     "## Subtítulo"
-                    ."\r\n".
+                    .Br::gen().
                     "### Subtítulo secundário"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "- Lista"
-                    ."\r\n".
+                    .Br::gen().
                     "- De"
-                    ."\r\n".
+                    .Br::gen().
                     "- Itens"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "1. Lista numerada"
-                    ."\r\n".
+                    .Br::gen().
                     "2. De itens"
-                    ."\r\n".
+                    .Br::gen().
                     "3. Aqui"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "**Texto em negrito**"
-                    ."\r\n".
+                    .Br::gen().
                     "*Texto em itálico*"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "> Aqui é o blockquote"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "[Link para o Google](https://www.google.com)"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "![Link para imagem](https://img.freepik.com/premium-vector/photo-icon-picture-icon-image-sign-symbol-vector-illustration_64749-4409.jpg)"
             ],
             [
@@ -54,31 +55,31 @@ class CourseInfos {
                 ],
                 "content" => 
                     "# Título Principal"
-                    ."\r\n".
+                    .Br::gen().
                     "## Subtítulo"
-                    ."\r\n".
+                    .Br::gen().
                     "### Subtítulo secundário"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "- Lista"
-                    ."\r\n".
+                    .Br::gen().
                     "- De"
-                    ."\r\n".
+                    .Br::gen().
                     "- Itens"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "1. Lista numerada"
-                    ."\r\n".
+                    .Br::gen().
                     "2. De itens"
-                    ."\r\n".
+                    .Br::gen().
                     "3. Aqui"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "**Texto em negrito**"
-                    ."\r\n".
+                    .Br::gen().
                     "*Texto em itálico*"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "> Aqui é o blockquote"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "[Link para o Google](https://www.google.com)"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "![Link para imagem](https://img.freepik.com/premium-vector/photo-icon-picture-icon-image-sign-symbol-vector-illustration_64749-4409.jpg)"
             ],
             [
@@ -89,31 +90,31 @@ class CourseInfos {
                 ],
                 "content" => 
                     "# Título Principal"
-                    ."\r\n".
+                    .Br::gen().
                     "## Subtítulo"
-                    ."\r\n".
+                    .Br::gen().
                     "### Subtítulo secundário"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "- Lista"
-                    ."\r\n".
+                    .Br::gen().
                     "- De"
-                    ."\r\n".
+                    .Br::gen().
                     "- Itens"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "1. Lista numerada"
-                    ."\r\n".
+                    .Br::gen().
                     "2. De itens"
-                    ."\r\n".
+                    .Br::gen().
                     "3. Aqui"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "**Texto em negrito**"
-                    ."\r\n".
+                    .Br::gen().
                     "*Texto em itálico*"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "> Aqui é o blockquote"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "[Link para o Google](https://www.google.com)"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "![Link para imagem](https://img.freepik.com/premium-vector/photo-icon-picture-icon-image-sign-symbol-vector-illustration_64749-4409.jpg)"
             ],
             [
@@ -124,31 +125,31 @@ class CourseInfos {
                 ],
                 "content" => 
                     "# Título Principal"
-                    ."\r\n".
+                    .Br::gen().
                     "## Subtítulo"
-                    ."\r\n".
+                    .Br::gen().
                     "### Subtítulo secundário"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "- Lista"
-                    ."\r\n".
+                    .Br::gen().
                     "- De"
-                    ."\r\n".
+                    .Br::gen().
                     "- Itens"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "1. Lista numerada"
-                    ."\r\n".
+                    .Br::gen().
                     "2. De itens"
-                    ."\r\n".
+                    .Br::gen().
                     "3. Aqui"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "**Texto em negrito**"
-                    ."\r\n".
+                    .Br::gen().
                     "*Texto em itálico*"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "> Aqui é o blockquote"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "[Link para o Google](https://www.google.com)"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "![Link para imagem](https://img.freepik.com/premium-vector/photo-icon-picture-icon-image-sign-symbol-vector-illustration_64749-4409.jpg)"
             ],
             [
@@ -159,31 +160,31 @@ class CourseInfos {
                 ],
                 "content" => 
                     "# Título Principal"
-                    ."\r\n".
+                    .Br::gen().
                     "## Subtítulo"
-                    ."\r\n".
+                    .Br::gen().
                     "### Subtítulo secundário"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "- Lista"
-                    ."\r\n".
+                    .Br::gen().
                     "- De"
-                    ."\r\n".
+                    .Br::gen().
                     "- Itens"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "1. Lista numerada"
-                    ."\r\n".
+                    .Br::gen().
                     "2. De itens"
-                    ."\r\n".
+                    .Br::gen().
                     "3. Aqui"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "**Texto em negrito**"
-                    ."\r\n".
+                    .Br::gen().
                     "*Texto em itálico*"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "> Aqui é o blockquote"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "[Link para o Google](https://www.google.com)"
-                    ."\r\n\r\n".
+                    .Br::gen(2).
                     "![Link para imagem](https://img.freepik.com/premium-vector/photo-icon-picture-icon-image-sign-symbol-vector-illustration_64749-4409.jpg)"
             ],
         ];

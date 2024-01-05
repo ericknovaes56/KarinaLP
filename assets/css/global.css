@@ -324,6 +324,10 @@ mark {
 
 @media (max-width: 1080px) {
 
+    .carousel .controls {
+        display: none;
+    }
+
     .menu .content-max .right-menu{
         position: fixed;
         width: 100%;
